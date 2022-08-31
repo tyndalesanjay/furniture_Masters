@@ -40,9 +40,9 @@ app.use('/api/items_list', itemRoute);
 app.use('/api/users', userRoute);
 app.use('/api/Cart', cartRoute);
 
-app.get("*.*", express.static('dist/shoppping-app/', { maxAge: '1y' }))
+app.get("*.*", express.static('Shoppping-app/dist/shoppping-app/', { maxAge: '1y' }))
 app.get("/*", (req, res) => {
-  res.status(200).sendFile('/', { root: 'dist/shoppping-app' })
+  res.status(200).sendFile('/', { root: 'Shoppping-app/dist/shoppping-app' })
 })
 
 
