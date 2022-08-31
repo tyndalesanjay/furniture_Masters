@@ -1,0 +1,9 @@
+.caption {
+    /* top: 0; */
+    bottom: 30vw;
+    padding: 0.8vw;
+}
+
+.right-image {
+    position: relative;
+}

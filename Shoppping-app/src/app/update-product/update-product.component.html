@@ -1,0 +1,37 @@
+<div class="container mt-3 pt-3">
+    <div class="col-12">
+        <div class="bg-secondary opacity-75 bg-gradient p-3 text-center mb-2 text-white fw-bolder fs-3">
+            Update Product
+        </div>
+        <hr>
+    </div>
+    <form class="row g-3" [formGroup]="updateProduct" (submit)="updateitem(product._id)">
+        <div class="col-12">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" formControlName="name">
+        </div>
+        <div class="col-md-6">
+            <label for="image" class="form-label">Image</label>
+            <input type="text" class="form-control" id="image" formControlName="imageUrl">
+        </div>
+        <div class="col-6">
+            <label for="category" class="form-label">Category</label>
+            <input type="text" class="form-control" id="category" formControlName="category">
+        </div>
+        <div class="col-md-6">
+            <label for="qauntity" class="form-label">Quantity</label>
+            <input type="text" class="form-control" id="qauntity" formControlName="quantity">
+        </div>
+        <div class="col-md-6">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" class="form-control" id="price" formControlName="price">
+        </div>
+        <div class="col-md-12">
+            <label for="description" class="form-label">Description</label><br>
+            <textarea name="description" id="" cols="30" rows="10" class="form-control" formControlName="description"></textarea>
+        </div>
+        <div class="col-12 text-end">
+            <button type="submit" class="btn btn-success w-100 bg-gradient p-1 text-center mb-2 text-white fw-bolder fs-3">Add Product</button>
+        </div>
+    </form>
+</div>

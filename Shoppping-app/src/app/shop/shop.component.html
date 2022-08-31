@@ -1,0 +1,121 @@
+<app-header></app-header>
+<section class="page-header">
+  <div class="overly"></div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="content text-center">
+          <h1 class="mb-3">Shop</h1>
+
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent justify-content-center">
+              <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Shop</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="products-shop section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="row align-items-center">
+          <div class="col-lg-12 mb-4 mb-lg-0">
+            <div class="section-title">
+              <h2 class="d-block text-left-sm">Shop</h2>
+
+              <div class="heading d-flex justify-content-between mb-5">
+                <p class="result-count mb-0">{{ page }}</p>
+                <form class="ordering" method="get">
+                  <select
+                    name="orderby"
+                    class="orderby form-control"
+                    aria-label="Shop order"
+                  >
+                    <option value="" selected="selected">
+                      Default sorting
+                    </option>
+                    <option value="L2H">Sort by price: low to high</option>
+                    <option value="H2L">Sort by price: high to low</option>
+                  </select>
+                  <input type="hidden" name="paged" value="1" />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div
+            class="col-lg-4 col-12 col-md-6 col-sm-6 mb-5"
+            *ngFor="
+              let product of products
+                | paginate: { itemsPerPage: 6, currentPage: page }
+            "
+          >
+            <div class="product">
+              <div class="product-wrap">
+                <a routerLink="/singleproduct/{{ product._id }}"
+                  ><img
+                    class="img-fluid w-100 mb-3 img-first"
+                    src="{{ product.imageUrl }}"
+                    alt="product-img"
+                /></a>
+                <a routerLink="/singleproduct/{{ product._id }}"
+                  ><img
+                    class="img-fluid w-100 mb-3 img-second"
+                    src="{{ product.imageUrl }}"
+                    alt="product-img"
+                /></a>
+              </div>
+
+              <span class="onsale">Sale</span>
+
+              <div class="product-info">
+                <h2 class="product-title h5 mb-0">
+                  <a routerLink="/singleproduct/{{ product._id }}">{{
+                    product.name
+                  }}</a>
+                </h2>
+                <span class="price">
+                  {{ product.price | currency }}
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <nav aria-label="Page navigation">
+              <ul class="pagination">
+                <pagination-controls
+                  (pageChange)="page = $event"
+                ></pagination-controls>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <!-- popular product -->
+        <section class="widget widget-popular mb-5">
+          <h3 class="widget-title mb-4 h4">Popular Products</h3>
+          <a
+            class="popular-products-item media"
+            routerLink="/singleproduct"
+            *ngFor="let product of products | slice: 4:7"
+          >
+            <img src="{{ product.imageUrl }}" alt="" class="img-fluid mr-4" />
+            <div class="media-body">
+              <h6>{{ product.name }}</h6>
+              <span class="price">{{ product.price | currency }}</span>
+            </div>
+          </a>
+        </section>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>
