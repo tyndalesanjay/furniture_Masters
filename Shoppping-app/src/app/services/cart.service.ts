@@ -8,7 +8,7 @@ import { Cart } from '../interfaces/cart.interface';
 })
 export class CartService {
 
-  private REST_API_SERVER = 'http://localhost:5000/api/Cart';
+  private REST_API_SERVER = '/api/Cart';
 
   constructor(private http: HttpClient) {}
 
