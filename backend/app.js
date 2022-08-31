@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const exec = require('child_process').exec
 
 const config = require('./config/db');
 const userRoute = require('./routes/user.routes');
@@ -41,11 +40,6 @@ app.use('/api/items_list', itemRoute);
 app.use('/api/users', userRoute);
 app.use('/api/Cart', cartRoute);
 
-exec("dir")
-app.get("*.*", express.static('../Shoppping-app/dist/shoppping-app/', { maxAge: '1y' }))
-app.get("/*", (req, res) => {
-  res.status(200).sendFile('/', { root: '../Shoppping-app/dist/shoppping-app' })
-})
 
 
 
