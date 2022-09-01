@@ -1,15 +1,22 @@
-const express = require('express');
-const { createItem, 
-        deleteItemById, 
-        getItemsbyId,
-        updateItem,
-        getAllItems 
-} = require('../controller/item.controller');
+const express = require("express");
+const {
+  createItem,
+  deleteItemById,
+  getItemsbyId,
+  updateItem,
+  getAllItems,
+  SearchItem,
+} = require("../controller/item.controller");
 
-const router = express.Router()
+const router = express.Router();
 
-router.route('/').post(createItem).get(getAllItems);
+router
+  .route("/")
+  .post(createItem)
+  .get(getAllItems)
 
-router.route('/:id').delete(deleteItemById).get(getItemsbyId).put(updateItem)
+  router.get("/search/:key", SearchItem);
+  
+router.route("/:id").delete(deleteItemById).get(getItemsbyId).put(updateItem);
 
-module.exports = router
+module.exports = router;

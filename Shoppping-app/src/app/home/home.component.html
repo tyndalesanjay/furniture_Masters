@@ -76,7 +76,7 @@
                 <div class="product-info">
                     <h2 class="product-title h5 mb-0"><a routerLink="/singleproduct/{{product._id}}">{{ product.name}}</a></h2>
                     <span class="price">
-                        {{ product.price }}
+                        {{ product.price | currency }}
                     </span>
                 </div>
             </div>
@@ -117,7 +117,7 @@
                     </a>
                     <div class="media-body">
                       <h6 class="featured-entry-title mb-0"><a routerLink="/singleproduct/{{product._id}}">{{ product.name }}</a></h6>
-                      <p class="featured-entry-meta">{{ product.price }}</p>
+                      <p class="featured-entry-meta">{{ product.price | currency }}</p>
                     </div>
                   </div>
                 </div>

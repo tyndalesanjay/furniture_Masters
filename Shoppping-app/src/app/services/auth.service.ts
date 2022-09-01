@@ -16,6 +16,9 @@ class DecodedToken {
   providedIn: 'root'
 })
 export class AuthService {
+  getToken() {
+    throw new Error('Method not implemented.');
+  }
 
   private uriseg = 'http://localhost:5000/api/login';
   private decodedToken;

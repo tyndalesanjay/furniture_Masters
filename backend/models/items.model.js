@@ -6,7 +6,6 @@ const itemSchema = new mongoose.Schema ({
         required: true,
         trim: true,
     },
-
     imageUrl: {
         type: String,
         required: true,
@@ -24,7 +23,6 @@ const itemSchema = new mongoose.Schema ({
         type: Number,
         required: true,
     },
-
     price: {
         type: Number,
         required: true,

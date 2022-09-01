@@ -8,6 +8,7 @@ const userRoute = require('./routes/user.routes');
 const indexRoute = require('./routes/index.routes');
 const itemRoute = require('./routes/item.routes');
 const cartRoute = require('./routes/cart.routes');
+const orderRoute = require('./routes/order.routes')
 
 const PORT = process.env.PORT || 5000;
 
@@ -21,12 +22,6 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// // sort
-// const results = itemSchema.find({}).sort({
-//     price: 1,
-// })
-// console.log('RESULTS', results)
-
 let corsOptions = {
   origin: 'http://localhost:4200',
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
@@ -39,6 +34,7 @@ app.use('/api/login', indexRoute);
 app.use('/api/items_list', itemRoute);
 app.use('/api/users', userRoute);
 app.use('/api/Cart', cartRoute);
+app.use('/api/order', orderRoute);
 
 
 

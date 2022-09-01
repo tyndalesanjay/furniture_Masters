@@ -1,52 +1,72 @@
 import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { ItemInterface } from '../interfaces/items';
+import { Order } from '../interfaces/order.interface';
 import { DataService } from '../services/data.service';
 import { AuthService } from '../services/auth.service';
-
+import { OrderService } from '../services/order.service';
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent implements OnInit {
-
-  productLength =''
-  products:ItemInterface[] = []
-  toggle: Boolean = true
-  p:any;
-
-  constructor(private dataService: DataService, public auth: AuthService, private router: Router) { }
+  productLength = '';
+  products: ItemInterface[] = [];
+  orders: Order[] = [];
+  toggle: Boolean = true;
+  p: any;
+  orderLength: any;
+  
+  constructor(
+    private dataService: DataService,
+    public auth: AuthService,
+    private orderService: OrderService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
+    // Gets all products and logs them.
     this.dataService.adminGetItems().subscribe((data: any) => {
-      this.products = data.data
-      this.productLength = data.data.length
+      this.products = data.data;
+      this.productLength = data.data.length;
       console.log(this.products);
-      
-    })
-  }
+    });
 
-  hideMenu(){
-    this.toggle = !this.toggle
-  }
-
-  deleteProduct(id: number) {
-    this.dataService.deleteItem(id).subscribe((data: any) => {
+    // Subscribes to orders.
+    this.orderService.getOrders().subscribe((data: any) => {
       if(!data) {
         console.error();
-        alert("Could not Delete Try Again")
       } else {
-        alert('Product has been Deleted')
-        window.location.reload()
+        this.orders = data.data
+        this.orderLength = data.data.length
+        console.log(this.orders);
       }
-    })
+    });
   }
 
+  // Hide the menu.
+  hideMenu() {
+    this.toggle = !this.toggle;
+  }
+
+  // Deletes a product.
+  deleteProduct(id: number) {
+    this.dataService.deleteItem(id).subscribe((data: any) => {
+      if (!data) {
+        console.error();
+        alert('Could not Delete Try Again');
+      } else {
+        alert('Product has been Deleted');
+        window.location.reload();
+      }
+    });
+  }
+
+  // Logs the user out.
   logout(): void {
     this.auth.logout();
-    this.router.navigate(['/login'], {queryParams: {loggedOut: 'success'}});
+    this.router.navigate(['/login'], { queryParams: { loggedOut: 'success' } });
   }
-
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 import { DataService } from '../services/data.service';
 import { Router } from '@angular/router'
 
@@ -10,9 +11,17 @@ import { Router } from '@angular/router'
 })
 export class AddProductComponent implements OnInit {
 
-  constructor(private dataService: DataService, private fb: FormBuilder, private router: Router) { }
+  toggle: Boolean = true;
+
+  constructor(private dataService: DataService, private fb: FormBuilder, private router: Router, public auth: AuthService) { }
+
+
 
   ngOnInit(): void {
+  }
+
+  hideMenu() {
+    this.toggle = !this.toggle
   }
 
   addProduct = this.fb.group({

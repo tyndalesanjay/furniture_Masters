@@ -67,7 +67,7 @@
                 <div class="box">
                   <div class="right-side">
                     <div class="box-topic">Total Orders</div>
-                    <!-- <div class="number">{{ videoLength }}</div> -->
+                    <div class="number">{{ orderLength }}</div>
                   </div>
                 </div>
                 <div class="box">
@@ -123,12 +123,12 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr >
-                      <td>
-                        <a>hhhhj</a>
-                      </td>
-                      <td>subject</td>
-                      <td>email</td>
+                    <tr *ngFor="let order of orders">
+                      <td>{{order.customername}}</td>
+                      <td>{{order.ordernumber}}</td>
+                      <td>{{order.status}}
+                        <!-- <li *ngFor="let product of order.products">{{product.name}}</li> -->
+                      
                       <td>
                         <a >
                           <i class="fa-solid fa-user-minus"></i>

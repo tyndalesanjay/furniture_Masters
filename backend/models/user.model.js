@@ -1,13 +1,20 @@
 const mongoose = require('mongoose')
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
 const Schema = mongoose.Schema
 
 const userSchema = new Schema({
+  _id: {
+    type: Schema.Types.ObjectId
+  },
   username: {
     type: String,
     min: [4, 'Too short, min 4 characters are required'],
     max: [32, 'Too long, max 16 characters are required']
   },
+  // role: {
+  //   type: Schema.Types.ObjectId,
+  //   required: 'Role is Required'
+  // },
   email: {
     type: String,
     min: [4, 'Too short, min 4 characters are required'],
@@ -35,7 +42,7 @@ const userSchema = new Schema({
 
 userSchema.pre('save', function (next) {
   const user = this
-  bcrypt.genSalt(10, function (err, salt) {
+  bcrypt.genSalt(12, function (err, salt) {
     if (err) {
       return res.status(422).json({
         'error': 'There is an error while gensalt hash'

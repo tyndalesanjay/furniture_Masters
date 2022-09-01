@@ -12,28 +12,32 @@ export class DataService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getAllItems():Observable<ItemInterface[]> {
+  getAllItems():Observable<ItemInterface[]> {
     return this.httpClient.get<ItemInterface[]>(this.REST_API_SERVER)
   }
 
-  public createItem(data: any): Observable<ItemInterface[]> {
+  createItem(data: any): Observable<ItemInterface[]> {
     return this.httpClient.post<ItemInterface[]>(this.REST_API_SERVER, data);
   }
 
-  public getItemsById(id: number):Observable<ItemInterface[]> {
+  getItemsById(id: number):Observable<ItemInterface[]> {
     const url = `${this.REST_API_SERVER}/${id}`
     return this.httpClient.get<ItemInterface[]>(url);
   }
 
-  public updateItem(id: any, data: any): Observable<any> {
+  searchVideo(key:any): Observable<ItemInterface[]> {
+    return this.httpClient.get<ItemInterface[]>(`${this.REST_API_SERVER + 'searchVideos'}/${key}`)
+  }
+
+  updateItem(id: any, data: any): Observable<any> {
     return this.httpClient.put<ItemInterface[]>(`${this.REST_API_SERVER}/${id}`, data);
   }
 
-  public deleteItem(id: any): Observable<ItemInterface[]> {
+  deleteItem(id: any): Observable<ItemInterface[]> {
     return this.httpClient.delete<ItemInterface[]>(`${this.REST_API_SERVER}/${id}`);
   }
 
-  public adminGetItems(): Observable<ItemInterface[]> {
+  adminGetItems(): Observable<ItemInterface[]> {
     return this.httpClient.get<ItemInterface[]>(this.REST_API_SERVER)
   }
 

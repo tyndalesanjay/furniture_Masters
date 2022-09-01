@@ -11,6 +11,27 @@ exports.getAllItems = async (req, res) => {
  }
 }
 
+exports.SearchItem = async (req, res, next) => {
+    try {
+      let items = await Items.find({
+        $or: [{ name: { $regex: req.params.key, $options: "i" } }],
+        $or: [{ category: { $regex: req.params.key, $options: "i" } }],
+      });
+    console.log(items);
+      res.status(200).json({
+        status: "Success",
+        length: items.length,
+        results: items,
+      });
+    } catch (error) {
+      res.status({
+        status: "Fail",
+        message: error,
+      });
+    }
+    next();
+  };
+
 exports.getItemsbyId = async (req, res) => {
     try {
         const items = await Items.findById(req.params.id)

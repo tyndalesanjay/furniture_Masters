@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Cart } from '../interfaces/cart.interface';
 import { CartService } from '../services/cart.service';
+import { OrderService } from '../services/order.service';
+import { Order } from '../interfaces/order.interface';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cart',
@@ -13,32 +16,67 @@ export class CartComponent implements OnInit {
   total_Price: any = 0;
   p: any;
 
-  constructor(private cart_service: CartService) {}
+  orderForm = {
+    customername: '',
+    ordernumber: this.randomString(10),
+    products: new Array()
+  }
+
+  constructor(private cartService: CartService, private orderService: OrderService, private fb: FormBuilder) {}
+
+  randomString(length: any) {
+    var randomChars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    var result = '';
+    for ( var i = 0; i < length; i++ ) {
+        result += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
+    }
+    return result;
+  }
 
   ngOnInit(): void {
-    this.cart_service.get_items().subscribe((data: any) => {
+    this.cartService.get_items().subscribe((data: any) => {
       this.items = data.results;
       this.cart_Length = data.length;
+      // this.createOrder()
       this.items.forEach((data) => {
         this.total_Price = this.total_Price + data.productID.price;
         console.log('total =', this.total_Price);
       });
-      // this.total_Price = this.items
-      console.log(this.items);
     });
+
   }
 
   delete_item(id: any) {
-    this.cart_service.delete_item(id).subscribe(() => {
+    this.cartService.delete_item(id).subscribe(() => {
       alert('Book removed!');
       window.location.reload();
     });
   }
 
   deleteAll() {
-    this.cart_service.deleteAll().subscribe(() => {
-      alert('Your order has been Placed');
+    this.cartService.deleteAll().subscribe(() => {
       window.location.reload();
     });
+  }
+
+  createOrder() {
+    this.items.forEach(item =>{
+      this.orderForm.products.push(item._id)
+    })
+    
+
+
+    this.orderService.createOrder(this.orderForm).subscribe((data: any) => {
+      if(data) {
+        alert('Order Placed Successfully')
+        console.log(data);
+        this.deleteAll()
+      } else {
+        console.error();
+        alert('Order fail to Place')
+        
+      }
+    // console.log('OrderForm responds', this.orderForm);
+    })
   }
 }
