@@ -1,3 +1,4 @@
+<app-header></app-header>
 <section class="page-header">
   <div class="overly"></div>
   <div class="container">
@@ -5,11 +6,6 @@
       <div class="col-lg-6">
         <div class="content text-center">
           <h1 class="mb-3">Cart</h1>
-          <p>
-            Hath after appear tree great fruitful green dominion moveth sixth
-            abundantly image that midst of god day multiply you’ll which
-          </p>
-
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent justify-content-center">
               <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
@@ -140,6 +136,7 @@
             <div class="input">
               <label for="name" class="form-label">Customer Name:</label>
               <input type="text" class="form-control" style="background-color: white; border: 2px solid;" id="customername" name="customername" [(ngModel)]="orderForm.customername">
+              <!-- <input type="text" class="form-control" style="background-color: white; border: 2px solid;" id="productTotal" name="productTotal" value="{{ total_Price }}" [(ngModel)]="orderForm.orderTotal"> -->
               <small>Please Enter Your Name</small>
             </div>
             <br />

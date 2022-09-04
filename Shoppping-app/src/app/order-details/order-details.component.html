@@ -1,0 +1,142 @@
+<div class="body_contain">
+    <!--------- DASHBOARD MENU --------->
+    <section class="dash_menu" id="dash_menu" *ngIf="toggle">
+      <a href="/" class="links">
+        <div class="logo">
+          <!-- <div class="logo-img">
+                      <img src="../assets/Images/E-scents-logo-2-removebg-preview.png" alt="">
+                  </div> -->
+          <div class="logo_txt">
+            <h5>Furniture Masters</h5>
+          </div>
+        </div>
+      </a>
+      <div class="profil_info">
+        <div class="profile_photo">
+          <img
+            src="https://images.unsplash.com/photo-1627161684458-a62da52b51c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=549&q=80"
+            alt=""
+          />
+        </div>
+        <h4>{{auth.getUsername()}}</h4>
+        <span>Admin</span>
+      </div>
+      <div class="dash_opts">
+        <details class="option">
+          <summary>
+            <a href="/admin"><i class="fa-solid fa-house-user"></i>Dashboard</a>
+          </summary>
+        </details>
+  
+        <details class="option">
+          <summary>
+            <i class="fa-solid fa-bag-shopping"></i>Manage Products<i
+              class="fa-solid fa-angle-down"
+            ></i>
+          </summary>
+          <p>
+            <a routerLink="/add-product" title="Add a new product"
+              ><i class="fa-solid fa-circle-plus"></i> Add New</a
+            >
+          </p>
+          <p>
+            <a routerLink="/product-list" title="View all products"
+              ><i class="fa-solid fa-spray-can"></i> Product List</a
+            >
+          </p>
+        </details>
+  
+        <details class="option">
+          <summary>
+            <i class="fa-solid fa-splotch"></i>Manage Orders<i
+              class="fa-solid fa-angle-down"
+            ></i>
+          </summary>
+          <p>
+            <a routerLink="/order" title="View all Orders"
+              ><i class="fa-solid fa-list-ul"></i> Order List</a
+            >
+          </p>
+        </details>
+  
+        <a class="logOut" href=""
+          ><i class="fa-solid fa-arrow-right-from-bracket"></i> log out</a
+        >
+      </div>
+    </section>
+  
+    <!--------- BODY / MAIN --------->
+    <section class="body_main" id="body_main">
+      <div class="top_bar">
+        <div (click)="hideMenu()" title="Side Bar" class="menu_bars">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+  
+        <div class="search">
+          <input type="search" placeholder="Type to search" />
+          <button class="searchIcon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </div>
+  
+      <section class="h-100 gradient-custom">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-10 col-xl-8">
+              <div class="card" style="border-radius: 10px;">
+                <div class="card-header px-4 py-5">
+                  <h5 class="text-muted mb-0">Customer's Name: <span style="color: rgb(28, 114, 147);">{{orders.customername}}</span>!</h5>
+                  <form action="" [formGroup]="statusForm">
+                    <select class="form-select mt-2" aria-label="Default select" name="status" formControlName="status">
+                      <option selected>Update Status</option>
+                      <option value="Paid">Paid</option>
+                      <option value="Unpaid">Unpaid</option>
+                      <option value="Pending">Pending</option>
+                    </select>
+                    <button type="submit" (click)="updateOrder(orders._id)" class="btn btn-sm p-1 rounded mt-2" style="background-color: rgb(28,114,147) !important; color: white;">Update Status</button>
+                  </form>
+                </div>
+                <div class="card-body p-4">
+                  <div class="d-flex justify-content-between align-items-center mb-4">
+                    <p class="lead fw-normal mb-0" style="color: #a8729a;">Receipt</p>
+                    <p class="small text-muted mb-0">Order Number : {{orders.ordernumber}}</p>
+                  </div>
+                  <div class="card shadow-0 border mb-4">
+                    <div class="card-body" *ngFor="let items of orders.products">
+                      <div class="row">
+                        <div class="col-md-2">
+                          <img src="{{items.imageUrl}}"
+                            class="img-fluid" alt="Phone">
+                        </div>
+                        <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                          <p class="text-muted mb-0">{{items.name}}</p>
+                        </div>
+                        <div class="col-md-2 text-center d-flex justify-content-center align-items-center" style="width: 19vw;">
+                          <p class="text-muted mb-0 small">{{items.description}}</p>
+                        </div>
+                        <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                          <p class="text-muted mb-0 small">{{items.price | currency}}</p>
+                        </div>
+                      </div>
+                      <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
+                    </div>
+                  </div>
+      
+                  <div class="d-flex justify-content-between pt-2">
+                    <p class="fw-bold mb-0">Order Details</p>
+                    <p class="text-muted mb-0"><span class="fw-bold me-4">Total</span></p>
+                  </div>
+                  <div class="d-flex justify-content-between mb-5">
+                    <p class="text-muted mb-0">Order Number : {{orders.ordernumber}} </p>
+                    <p class="text-muted mb-0">{{orders.orderTotal | currency}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </div>
+  

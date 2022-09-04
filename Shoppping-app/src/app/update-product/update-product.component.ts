@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 import { DataService } from '../services/data.service';
 import { ItemInterface } from '../interfaces/items';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -11,9 +12,11 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class UpdateProductComponent implements OnInit {
   product: any = [];
+  toggle: Boolean = true;
 
   constructor(
     private dataService: DataService,
+    public auth: AuthService,
     private route: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder
@@ -31,6 +34,11 @@ export class UpdateProductComponent implements OnInit {
     quantity: ['', Validators.required],
     price: ['', Validators.required],
   });
+
+  // Hide the menu.
+  hideMenu() {
+    this.toggle = !this.toggle;
+  }
 
   getProduct(id: any) {
     this.dataService.getItemsById(id).subscribe((data: any) => {
@@ -55,8 +63,8 @@ export class UpdateProductComponent implements OnInit {
           console.error();
           alert('Error');
         } else {
-          alert('Product Updated Successfully')
-          this.router.navigate(['/admin'])
+          alert('Product Updated Successfully');
+          this.router.navigate(['/admin']);
         }
       });
   }

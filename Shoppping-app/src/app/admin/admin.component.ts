@@ -39,8 +39,8 @@ export class AdminComponent implements OnInit {
       if(!data) {
         console.error();
       } else {
-        this.orders = data.data
-        this.orderLength = data.data.length
+        this.orders = data.results
+        this.orderLength = data.length
         console.log(this.orders);
       }
     });
@@ -52,7 +52,7 @@ export class AdminComponent implements OnInit {
   }
 
   // Deletes a product.
-  deleteProduct(id: number) {
+  deleteProduct(id: string) {
     this.dataService.deleteItem(id).subscribe((data: any) => {
       if (!data) {
         console.error();
@@ -62,6 +62,17 @@ export class AdminComponent implements OnInit {
         window.location.reload();
       }
     });
+  }
+
+  deleteOrder(id: string) {
+    this.orderService.deleteItem(id).subscribe((data: any) => {
+      if (data) {
+        alert("Order Deleted Successfully")
+        window.location.reload();
+      }  else {
+        alert('Order was Not Deleted... Try Again');
+      }
+    })
   }
 
   // Logs the user out.

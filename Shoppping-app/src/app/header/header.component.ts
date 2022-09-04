@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 import { Cart } from '../interfaces/cart.interface';
 import { CartService } from '../services/cart.service';
+import { DataService } from '../services/data.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -11,8 +14,9 @@ export class HeaderComponent implements OnInit {
   items: any[] = [];
   total_Price:any = 0;
   cart_Length = '';
+  search = '';
   
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private dataService: DataService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.cartService.get_items().subscribe((data: any) => {
@@ -27,11 +31,27 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  searchForm = this.fb.group({
+    search: ['', Validators.required]
+  })
+
+  searchProducts(): void{
+    if (this.search === '') {
+      this.router.navigate([`/shop`])
+      alert('No Movies Found')
+    } else {
+      this.router.navigate([`/search/${this.search}`])
+      console.error();
+    }
+  }
+
   delete_item(id: any) {
     this.cartService.delete_item(id).subscribe(() => {
-      alert('Book removed!');
+      alert('Item removed!');
       window.location.reload();
     });
   }
+
+
 
 }

@@ -20,7 +20,8 @@ export class AuthService {
     throw new Error('Method not implemented.');
   }
 
-  private uriseg = 'http://localhost:5000/api/login';
+  // private uriseg = '/api/login';
+  private uriseg = '/api/login';
   private decodedToken;
 
   constructor(private http: HttpClient) {

@@ -1,170 +1,251 @@
 <app-header></app-header>
-<ngx-slick-carousel class="main-slider slider"   [config]="slideConfig" >
-    <div ngxSlickItem class="slider-item " style="background-image:url('https://media.discordapp.net/attachments/962065188423598080/1014396277066301510/pexels-vecislavas-popa-1571459.jpg?width=1196&height=689')">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 col-12 offset-lg-6 offset-md-6">
-            <div class="slider-caption">
-              <h1 class="mt-2 mb-5"><span class="text-color">Living Room</span> Sets</h1>
-              <a routerLink="/shop" class="btn btn-main">Shop Now</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div ngxSlickItem  class="slider-item" style="background-image:url('https://cdn.discordapp.com/attachments/962065188423598080/1014276087821377586/LD_HP_DK_1_768x340.jpg')">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 col-12 offset-lg-6 offset-md-6">
-            <div class="slider-caption">
-              <h1 class="mt-2 mb-5"><span class="text-color">Classic</span> Style</h1>
-              <a routerLink="/shop" class="btn btn-main">Shop Now</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div ngxSlickItem  class="slider-item" style="background-image:url('https://cdn.discordapp.com/attachments/962065188423598080/1014397377127391242/pexels-max-vakhtbovych-6394581.jpg'); background-position:50%;background-repeat:no-repeat;">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 col-12 offset-lg-6 offset-md-6">
-            <div class="slider-caption">
-              <h1 class="mt-2 mb-5"><span class="text-color">Bedroom </span>Collection</h1>
-              <a routerLink="/shop" class="btn btn-main">Shop Now</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </ngx-slick-carousel>
-  <section class="category section pt-3 pb-0">
+<ngx-slick-carousel class="main-slider slider" [config]="slideConfig">
+  <div
+    ngxSlickItem
+    class="slider-item"
+    style="
+      background-image: url('https://media.discordapp.net/attachments/962065188423598080/1014396277066301510/pexels-vecislavas-popa-1571459.jpg?width=1196&height=689');
+    "
+  >
     <div class="container">
       <div class="row">
-        <div class="col-lg-4 col-sm-12 col-md-6" *ngFor="let product of products | slice:27:30; let i=index">
-          <div class="cat-item mb-4 mb-lg-0">
-            <img src="{{ product.imageUrl }}" alt="" class="img-fluid">
-              <div class="item-info">
-                <p class="mb-0">{{product.name}}</p>
-                  <h4 class="mb-4">up to <strong>50% </strong>off</h4>
-                <a href="" routerLink="/shop" class="read-more">Shop now</a>
-              </div>
+        <div class="col-lg-6 col-12 offset-lg-6 offset-md-6">
+          <div class="slider-caption">
+            <h1 class="mt-2 mb-5">
+              <span class="text-color">Living Room</span> Sets
+            </h1>
+            <a routerLink="/shop" class="btn btn-main">Shop Now</a>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <section class="section products-main">
-      <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="title text-center">
-                        <h2>New arrivals</h2>
-                        <p>The best Online sales to shop these weekend</p>
-                    </div>
-                </div>
-            </div>
+  </div>
+  <div
+    ngxSlickItem
+    class="slider-item"
+    style="
+      background-image: url('https://cdn.discordapp.com/attachments/962065188423598080/1014276087821377586/LD_HP_DK_1_768x340.jpg');
+    "
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-12 offset-lg-6 offset-md-6">
+          <div class="slider-caption">
+            <h1 class="mt-2 mb-5">
+              <span class="text-color">Classic</span> Style
+            </h1>
+            <a routerLink="/shop" class="btn btn-main">Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    ngxSlickItem
+    class="slider-item"
+    style="
+      background-image: url('https://cdn.discordapp.com/attachments/962065188423598080/1014397377127391242/pexels-max-vakhtbovych-6394581.jpg');
+      background-position: 50%;
+      background-repeat: no-repeat;
+    "
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-12 offset-lg-6 offset-md-6">
+          <div class="slider-caption">
+            <h1 class="mt-2 mb-5">
+              <span class="text-color">Bedroom </span>Collection
+            </h1>
+            <a routerLink="/shop" class="btn btn-main">Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ngx-slick-carousel>
+<section class="category section pt-3 pb-0">
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-lg-4 col-sm-12 col-md-6"
+        *ngFor="let product of products | slice: 27:30; let i = index"
+      >
+        <div class="cat-item mb-4 mb-lg-0">
+          <img src="{{ product.imageUrl }}" alt="" class="img-fluid" />
+          <div class="item-info">
+            <p class="mb-0">{{ product.name }}</p>
+            <h4 class="mb-4">up to <strong>50% </strong>off</h4>
+            <a href="" routerLink="/shop" class="read-more">Shop now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section products-main">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="title text-center">
+          <h2>New arrivals</h2>
+          <p>The best Online sales to shop these weekend</p>
+        </div>
+      </div>
+    </div>
 
-
-        <div class="row">
-          <div class="col-lg-3 col-12 col-md-6 col-sm-6" *ngFor="let product of products | slice:7:19; let i = index">
-              <div class="product">
-                <div class="product-wrap">
-                  <a routerLink="/singleproduct/{{product._id}}"><img style="width: 20px ;" class="img-fluid w-100 mb-3 img-first" src="{{ product.imageUrl }}" alt="product-img" /></a>
-                  <a routerLink="/singleproduct/{{product._id}}"><img style="width: 20px ;" class="img-fluid w-100 mb-3 img-second" src="{{product.imageUrl }}" alt="product-img" /></a>
-                </div>
-                <span class="onsale">Sale</span>
-                <div class="product-info">
-                    <h2 class="product-title h5 mb-0"><a routerLink="/singleproduct/{{product._id}}">{{ product.name}}</a></h2>
-                    <span class="price">
-                        {{ product.price | currency }}
-                    </span>
-                </div>
+    <div class="row">
+      <div
+        class="col-lg-3 col-12 col-md-6 col-sm-6"
+        *ngFor="let product of products | slice: 7:19; let i = index"
+      >
+        <div class="product">
+          <div class="product-wrap">
+            <a routerLink="/singleproduct/{{ product._id }}"
+              ><img
+                style="width: 20px"
+                class="img-fluid w-100 mb-3 img-first"
+                src="{{ product.imageUrl }}"
+                alt="product-img"
+            /></a>
+            <a routerLink="/singleproduct/{{ product._id }}"
+              ><img
+                style="width: 20px"
+                class="img-fluid w-100 mb-3 img-second"
+                src="{{ product.imageUrl }}"
+                alt="product-img"
+            /></a>
+          </div>
+          <span class="onsale">Sale</span>
+          <div class="product-info">
+            <h2 class="product-title h5 mb-0">
+              <a routerLink="/singleproduct/{{ product._id }}">{{
+                product.name
+              }}</a>
+            </h2>
+            <span class="price">
+              {{ product.price | currency }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section mb-5 products-list">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-sm-12 col-md-12 right-image positon-relative">
+        <img
+          src="https://cdn.discordapp.com/attachments/962065188423598080/1014398791639646258/pexels-pixabay-459976.jpg"
+          alt="Product big thumb"
+          class="img-fluid w-100"
+        />
+        <div class="caption position-absolute">
+          <h1 class=""><span class="text-color">Baby Furniture</span> Sets</h1>
+          <a routerLink="/shop" class="btn btn-main">Shop Now</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 col-md-6">
+        <div class="widget-featured-entries mt-5 mt-lg-0">
+          <h4 class="mb-4 pb-3">Best sellers</h4>
+          <div
+            class="media mb-3"
+            *ngFor="let product of products | slice: 10:15; let i = index"
+          >
+            <a
+              class="featured-entry-thumb"
+              routerLink="/singleproduct/{{ product._id }}"
+            >
+              <img
+                src="{{ product.imageUrl }}"
+                alt="Product thumb"
+                width="64"
+                class="img-fluid mr-3"
+              />
+            </a>
+            <div class="media-body">
+              <h6 class="featured-entry-title mb-0">
+                <a routerLink="/singleproduct/{{ product._id }}">{{
+                  product.name
+                }}</a>
+              </h6>
+              <p class="featured-entry-meta">{{ product.price | currency }}</p>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  <section class="section mb-5 products-list">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-sm-12 col-md-12 right-image positon-relative">
-            <img src="https://cdn.discordapp.com/attachments/962065188423598080/1014398791639646258/pexels-pixabay-459976.jpg" alt="Product big thumb"  class="img-fluid w-100">
-            <div class="caption position-absolute">
-              <h1 class=""><span class="text-color">Baby Furniture</span> Sets</h1>
-              <a routerLink="/shop" class="btn btn-main">Shop Now</a>
-            </div>
-          </div>
-        <div class="col-lg-4 col-sm-6 col-md-6">
-          <div class="widget-featured-entries mt-5 mt-lg-0">
-            <h4 class="mb-4 pb-3">Best sellers</h4>
-              <div class="media mb-3" *ngFor="let product of products | slice:10:15; let i = index">
-                <a class="featured-entry-thumb" routerLink="/singleproduct/{{product._id}}">
-                  <img src="{{ product.imageUrl }}" alt="Product thumb" width="64" class="img-fluid mr-3">
-                </a>
-                <div class="media-body">
-                  <h6 class="featured-entry-title mb-0"><a routerLink="/singleproduct/{{product._id}}">{{ product.name }}</a></h6>
-                  <p class="featured-entry-meta">{{product.price | currency}}</p>
-                </div>
-              </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 col-md-6">
-          <div class="widget-featured-entries mt-5 mt-lg-0">
-            <h4 class="mb-4 pb-3">New Arrivals</h4>
-                  <div class="media mb-3" *ngFor="let product of products | slice:8:13; let i = index">
-                    <a class="featured-entry-thumb" routerLink="/singleproduct/{{product._id}}">
-                      <img src="{{ product.imageUrl }}" alt="Product thumb" width="64" class="img-fluid mr-3">
-                    </a>
-                    <div class="media-body">
-                      <h6 class="featured-entry-title mb-0"><a routerLink="/singleproduct/{{product._id}}">{{ product.name }}</a></h6>
-                      <p class="featured-entry-meta">{{ product.price | currency }}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-  <section class="features border-top">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3 col-sm-6 col-md-6">
-          <div class="feature-block">
-            <i class="tf-ion-android-bicycle"></i>
-            <div class="content">
-              <h5>Free Shipping</h5>
-              <p>On all order over $39.00</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6 col-md-6">
-          <div class="feature-block">
-            <i class="tf-wallet"></i>
-            <div class="content">
-              <h5>30 Days Return</h5>
-              <p>Money back Guarantee</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6 col-md-6">
-          <div class="feature-block">
-            <i class="tf-key"></i>
-            <div class="content">
-              <h5>Secure Checkout</h5>
-              <p>100% Protected by paypal</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-sm-6 col-md-6">
-          <div class="feature-block">
-            <i class="tf-clock"></i>
-            <div class="content">
-              <h5>24/7 Support</h5>
-              <p>All time customer support </p>
+      <div class="col-lg-4 col-sm-6 col-md-6">
+        <div class="widget-featured-entries mt-5 mt-lg-0">
+          <h4 class="mb-4 pb-3">New Arrivals</h4>
+          <div
+            class="media mb-3"
+            *ngFor="let product of products | slice: 8:13; let i = index"
+          >
+            <a
+              class="featured-entry-thumb"
+              routerLink="/singleproduct/{{ product._id }}"
+            >
+              <img
+                src="{{ product.imageUrl }}"
+                alt="Product thumb"
+                width="64"
+                class="img-fluid mr-3"
+              />
+            </a>
+            <div class="media-body">
+              <h6 class="featured-entry-title mb-0">
+                <a routerLink="/singleproduct/{{ product._id }}">{{
+                  product.name
+                }}</a>
+              </h6>
+              <p class="featured-entry-meta">{{ product.price | currency }}</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <app-footer></app-footer>
+  </div>
+</section>
+<section class="features border-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-sm-6 col-md-6">
+        <div class="feature-block">
+          <i class="tf-ion-android-bicycle"></i>
+          <div class="content">
+            <h5>Free Shipping</h5>
+            <p>On all order over $39.00</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-6 col-md-6">
+        <div class="feature-block">
+          <i class="tf-wallet"></i>
+          <div class="content">
+            <h5>30 Days Return</h5>
+            <p>Money back Guarantee</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-6 col-md-6">
+        <div class="feature-block">
+          <i class="tf-key"></i>
+          <div class="content">
+            <h5>Secure Checkout</h5>
+            <p>100% Protected by paypal</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-sm-6 col-md-6">
+        <div class="feature-block">
+          <i class="tf-clock"></i>
+          <div class="content">
+            <h5>24/7 Support</h5>
+            <p>All time customer support</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

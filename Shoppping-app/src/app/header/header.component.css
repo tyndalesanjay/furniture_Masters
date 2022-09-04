@@ -1,0 +1,24 @@
+.searchInput {
+  position: relative;
+  display: flex;
+  justify-content: end;
+  position: absolute;
+  top: 2.9vw;
+  right: 13vw;
+}
+
+.searchInput > input {
+  border-radius: 5px !important;
+  height: 2.3vw !important;
+  margin: 3px;
+  width: 35%;
+  background: transparent !important;
+  transition: ease-in-out 1s;
+}
+
+.searchInput > input:focus {
+  border: 2px solid rgb(255, 132, 102) !important;
+  padding: 15px;
+  width: 100%;
+  animation: normal;
+}

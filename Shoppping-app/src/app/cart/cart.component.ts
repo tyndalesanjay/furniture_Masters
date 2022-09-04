@@ -19,7 +19,8 @@ export class CartComponent implements OnInit {
   orderForm = {
     customername: '',
     ordernumber: this.randomString(10),
-    products: new Array()
+    orderTotal: '',
+    products: Array()
   }
 
   constructor(private cartService: CartService, private orderService: OrderService, private fb: FormBuilder) {}
@@ -37,12 +38,18 @@ export class CartComponent implements OnInit {
     this.cartService.get_items().subscribe((data: any) => {
       this.items = data.results;
       this.cart_Length = data.length;
+      
       // this.createOrder()
       this.items.forEach((data) => {
         this.total_Price = this.total_Price + data.productID.price;
+        this.orderForm.orderTotal = this.total_Price
         console.log('total =', this.total_Price);
+
       });
+      console.error();
     });
+
+    console.log('OrderForm responds', this.orderForm);
 
   }
 
@@ -61,20 +68,21 @@ export class CartComponent implements OnInit {
 
   createOrder() {
     this.items.forEach(item =>{
-      this.orderForm.products.push(item._id)
+      this.orderForm.products.push(item.productID._id)
+      console.error();
     })
 
     this.orderService.createOrder(this.orderForm).subscribe((data: any) => {
       if(data) {
         alert('Order Placed Successfully')
         console.log(data);
+        // console.error();
         this.deleteAll()
       } else {
         console.error();
         alert('Order fail to Place')
         
       }
-    // console.log('OrderForm responds', this.orderForm);
     })
   }
 }

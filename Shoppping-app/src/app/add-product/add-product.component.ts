@@ -45,4 +45,9 @@ export class AddProductComponent implements OnInit {
     })
   }
 
+  logout(): void {
+    this.auth.logout();
+    this.router.navigate(['/login'], { queryParams: { loggedOut: 'success' } });
+  }
+
 }

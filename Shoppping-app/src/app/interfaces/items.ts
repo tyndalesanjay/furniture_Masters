@@ -1,14 +1,14 @@
 export class ItemInterface {
-  _id: number;
-  name: String;
+  _id: string;
+  name: string;
   price: number;
-  description: String;
-  imageUrl: String;
-  category: String;
+  description: string;
+  imageUrl: string;
+  category: string;
   quantity: number;
   productID: any;
 
-  constructor(_id?: number, name?: String, price?: number, description?: String, imageUrl?: String, category?: String, quantity?: number) {
+  constructor(_id?: string, name?: string, price?: number, description?: string, imageUrl?: string, category?: string, quantity?: number) {
    this._id = _id!,
    this.name = name!,
    this.price = price!,

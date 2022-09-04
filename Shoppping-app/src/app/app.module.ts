@@ -14,15 +14,10 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { SingleproductComponent } from './singleproduct/singleproduct.component';
 import { CartComponent } from './cart/cart.component';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { OrdersComponent } from './orders/orders.component';
 import { SignupComponent } from './signup/signup.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ShopComponent } from './shop/shop.component';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
-import { AddressComponent } from './address/address.component';
-import { EditAddressComponent } from './edit-address/edit-address.component';
 import { LoginComponent } from './login/login.component';
 import { FilterPipe } from 'src/pipes/filter.pipe';
 import { SortPipe } from 'src/pipes/sort.pipe';
@@ -31,6 +26,8 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { ListProductsComponent } from './list-products/list-products.component';
 import { ViewProductsComponent } from './view-products/view-products.component';
+import { SearchComponent } from './search/search.component';
+import { OrderDetailsComponent } from './order-details/order-details.component';
 
 @NgModule({
   declarations: [
@@ -40,15 +37,10 @@ import { ViewProductsComponent } from './view-products/view-products.component';
     HomeComponent,
     SingleproductComponent,
     CartComponent,
-    CheckoutComponent,
-    DashboardComponent,
     OrdersComponent,
     SignupComponent,
-    ForgotPasswordComponent,
     ShopComponent,
     ProfileDetailsComponent,
-    AddressComponent,
-    EditAddressComponent,
     LoginComponent,
     FilterPipe,
     SortPipe,
@@ -56,7 +48,9 @@ import { ViewProductsComponent } from './view-products/view-products.component';
     AddProductComponent,
     UpdateProductComponent,
     ListProductsComponent,
-    ViewProductsComponent
+    ViewProductsComponent,
+    SearchComponent,
+    OrderDetailsComponent
   ],
   imports: [
     BrowserModule,

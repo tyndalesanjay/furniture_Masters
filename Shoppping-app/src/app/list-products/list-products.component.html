@@ -18,7 +18,7 @@
           alt=""
         />
       </div>
-      <h4>John Doe</h4>
+      <h4>{{auth.getUsername()}}</h4>
       <span>Admin</span>
     </div>
     <div class="dash_opts">
@@ -48,18 +48,13 @@
 
       <details class="option">
         <summary>
-          <i class="fa-solid fa-splotch"></i>Manage Brands<i
+          <i class="fa-solid fa-splotch"></i>Manage Orders<i
             class="fa-solid fa-angle-down"
           ></i>
         </summary>
         <p>
-          <a href="admin/add/brand" title="Add a new brand"
-            ><i class="fa-solid fa-circle-plus"></i> Add New</a
-          >
-        </p>
-        <p>
-          <a href="/admin/brands" title="View all brands"
-            ><i class="fa-solid fa-list-ul"></i> Brand List</a
+          <a routerLink="/order" title="View all Orders"
+            ><i class="fa-solid fa-list-ul"></i> Order List</a
           >
         </p>
       </details>

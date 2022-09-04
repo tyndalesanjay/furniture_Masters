@@ -3,6 +3,7 @@ import { DataService } from '../services/data.service';
 import { ItemInterface } from '../interfaces/items';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from '../services/cart.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-view-products',
@@ -14,7 +15,7 @@ export class ViewProductsComponent implements OnInit {
   products: any = []
   toggle: Boolean = false
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private dataService: DataService, private cartService: CartService) { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private dataService: DataService, private cartService: CartService, public auth: AuthService) { }
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.paramMap.get('id')
@@ -31,7 +32,7 @@ export class ViewProductsComponent implements OnInit {
     })
   }
 
-  deleteProduct(id: number) {
+  deleteProduct(id: string) {
     this.dataService.deleteItem(id).subscribe((data: any) => {
       if(!data) {
         console.error();

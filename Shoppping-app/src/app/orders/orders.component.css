@@ -1,0 +1,51 @@
+.tables{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10vw;
+    /* align-items: baseline; */
+    align-items:flex-start;
+    padding: 1vw;
+  
+  }
+  
+  .products{
+    /* border: 1px solid red; */
+    width: 100%;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  }
+
+  /* .products>tbody>tr {
+    border-bottom: 2px solid grey;
+  } */
+  .products>thead>tr>h1, .contacts>thead>tr>h1{
+    font-size: 2vw;
+    left: 1vw;
+  }
+  
+  table, th, td{
+    border-radius: 1vw;
+    background: #fff;
+    border-collapse:separate;
+    padding: 0.453vw;
+  }
+  th {
+    text-align: center;
+  }
+  th{
+    /* background: #a7acb4; */
+    font-size: 1.2vw;
+    font-weight: bold;
+  }
+  
+  td{
+    font-size: 1.2vw;
+    text-align: center;
+  }
+  
+  td>a{
+    /* border: 1px solid red; */
+    text-decoration: none;
+    /* font-size: 2vw; */
+    /* margin-right: 1vw; */
+  }

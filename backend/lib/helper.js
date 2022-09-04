@@ -1,3 +1,4 @@
+// Returns a JSONResponse with a success or error
 class JSONResponse {
     static success(res, message = "success", data, status) {
        res.status(status ?? res.statusCode).json({

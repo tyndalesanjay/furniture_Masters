@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
+import { AuthService } from '../services/auth.service';
 import { ItemInterface } from '../interfaces/items';
 
 @Component({
@@ -12,7 +14,7 @@ export class ListProductsComponent implements OnInit {
   toggle: Boolean = false
   p:any;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private router: Router, public auth: AuthService) { }
 
   ngOnInit(): void {
     this.dataService.adminGetItems().subscribe((data: any) => {
@@ -21,6 +23,8 @@ export class ListProductsComponent implements OnInit {
         
       } else {
         this.products = data.data
+        console.error();
+
       }
     })
   }
@@ -29,7 +33,7 @@ export class ListProductsComponent implements OnInit {
     this.toggle = !this.toggle
   }
 
-  deleteProduct(id: number) {
+  deleteProduct(id: string) {
     this.dataService.deleteItem(id).subscribe((data: any) => {
       if(!data) {
         console.error();
@@ -39,6 +43,11 @@ export class ListProductsComponent implements OnInit {
         window.location.reload()
       }
     })
+  }
+
+  logout(): void {
+    this.auth.logout();
+    this.router.navigate(['/login'], { queryParams: { loggedOut: 'success' } });
   }
 
 }

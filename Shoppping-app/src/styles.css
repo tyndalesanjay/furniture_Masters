@@ -346,3 +346,14 @@ summary .fa-spray-can, summary .fa-bag-shopping, summary .fa-house-user, summary
     margin-top: 0.5vw;
     border-radius: 40px;
 }
+
+.product a img {
+    /* border: 2px solid red; */
+    height: 25vw;
+    width: 40vw;
+}
+
+button, 
+a {
+    cursor: pointer !important;
+}

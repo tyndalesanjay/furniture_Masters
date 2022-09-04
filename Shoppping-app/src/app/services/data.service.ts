@@ -8,7 +8,8 @@ import { map, Observable, tap } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
-  private REST_API_SERVER = 'http://localhost:5000/api/items_list';
+  // private REST_API_SERVER = '/api/items_list';
+  private REST_API_SERVER = '/api/items_list';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -25,8 +26,8 @@ export class DataService {
     return this.httpClient.get<ItemInterface[]>(url);
   }
 
-  searchVideo(key:any): Observable<ItemInterface[]> {
-    return this.httpClient.get<ItemInterface[]>(`${this.REST_API_SERVER + 'searchVideos'}/${key}`)
+  search(key:any): Observable<ItemInterface[]> {
+    return this.httpClient.get<ItemInterface[]>(`${this.REST_API_SERVER + '/search'}/${key}`)
   }
 
   updateItem(id: any, data: any): Observable<any> {
