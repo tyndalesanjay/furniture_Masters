@@ -63,8 +63,6 @@ export class CartComponent implements OnInit {
     this.items.forEach(item =>{
       this.orderForm.products.push(item._id)
     })
-    
-
 
     this.orderService.createOrder(this.orderForm).subscribe((data: any) => {
       if(data) {
