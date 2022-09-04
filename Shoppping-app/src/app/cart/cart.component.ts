@@ -55,7 +55,7 @@ export class CartComponent implements OnInit {
 
   delete_item(id: any) {
     this.cartService.delete_item(id).subscribe(() => {
-      alert('Book removed!');
+      alert('Product removed!');
       window.location.reload();
     });
   }
