@@ -1,6 +1,7 @@
 const User = require("../models/user.model");
 const { JSONResponse } = require("../lib/helper");
 
+// Get a list of users
 exports.getAllUsers = async (req, res) => {
   try {
     const user = await User.find();
@@ -11,7 +12,8 @@ exports.getAllUsers = async (req, res) => {
   }
 };
 
-exports.getUsersbyId = async (req, res) => {
+// Get a user by id
+exports.getUsersById = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     JSONResponse.success(res, "Success", user, 200);
@@ -21,6 +23,7 @@ exports.getUsersbyId = async (req, res) => {
   }
 };
 
+// Creates a new user
 exports.createUser = async (req, res) => {
   try {
     const user = await User.create(req.body);
@@ -31,6 +34,7 @@ exports.createUser = async (req, res) => {
   }
 };
 
+// Updates a user.
 exports.updateUser = async (req, res) => {
   try {
     const user = await User.findByIdAndUpdate({ _id: req.params.id }, req.body);
@@ -41,6 +45,7 @@ exports.updateUser = async (req, res) => {
   }
 };
 
+// Deletes an item model
 exports.deleteUserById = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);

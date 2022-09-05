@@ -1,0 +1,15 @@
+.card {
+    margin-top: 10vw;
+    margin-left: 50vw;
+    width: 70vw;
+    transform: translate(-50%);
+    text-align: center;
+}
+
+.card-footer .reply-btn a { 
+    border-radius: 7px !important;
+}
+
+.card-footer .delete-btn a:hover { 
+    background: rgba(218, 37, 37, 0.945);
+}

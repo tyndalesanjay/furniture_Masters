@@ -10,13 +10,10 @@ const {
 
 const router = express.Router();
 
-router
-  .route("/")
-  .post(createItem)
-  .get(getAllItems)
+router.route("/").post(createItem).get(getAllItems);
 
-  router.get("/search/:key", SearchItem);
-  
+router.get("/search/:key", SearchItem);
+
 router.route("/:id").delete(deleteItemById).get(getItemsbyId).put(updateItem);
 
 module.exports = router;

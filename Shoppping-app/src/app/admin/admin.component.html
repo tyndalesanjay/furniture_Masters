@@ -29,7 +29,12 @@
 
             <details class="option">
                 <summary><i class="fa-solid fa-splotch"></i>Manage Orders<i class="fa-solid fa-angle-down"></i></summary>
-                <p><a routerLink="/order" title="View all brands"><i class="fa-solid fa-list-ul"></i> Order List</a></p>
+                <p><a routerLink="/order" title="View all Orders"><i class="fa-solid fa-list-ul"></i> Order List</a></p>
+            </details>
+
+            <details class="option">
+                <summary><i class="fa-solid fa-message"></i>Manage Messages<i class="fa-solid fa-angle-down"></i></summary>
+                <p><a routerLink="/message-list" title="View all Messages"><i class="fa-solid fa-list-ul"></i> Message List</a></p>
             </details>
 
             <a class="logOut" (click)="logout()"><i class="fa-solid fa-arrow-right-from-bracket"></i> log out</a>
@@ -68,8 +73,8 @@
                 </div>
                 <div class="box">
                   <div class="right-side">
-                    <div class="box-topic">Pending Orders</div>
-                    <div class="number">5</div>
+                    <div class="box-topic">Messages</div>
+                    <div class="number">{{contactLength}}</div>
                   </div>
                 </div>
               </div>

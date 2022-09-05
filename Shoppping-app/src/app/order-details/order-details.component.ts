@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { Order } from '../interfaces/order.interface';
 import { OrderService } from '../services/order.service';
@@ -19,7 +19,8 @@ export class OrderDetailsComponent implements OnInit {
     private orderService: OrderService,
     public auth: AuthService,
     private route: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -57,5 +58,11 @@ export class OrderDetailsComponent implements OnInit {
         console.error();
       }
     });
+  }
+
+  // Logs the user out.
+  logout(): void {
+    this.auth.logout();
+    this.router.navigate(['/login'], { queryParams: { loggedOut: 'success' } });
   }
 }

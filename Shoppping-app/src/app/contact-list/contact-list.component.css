@@ -1,9 +1,3 @@
-
-
-
-/* ------------------ BODY - MAIN / HEADING ---------------------- */
-
-
 .tables{
     /* border: 1px solid red; */
     display: flex;
@@ -62,9 +56,9 @@
     color: #fb5c42 !important;
   }
 
-  .fa-circle-minus,
-  .fa-pen,
+  .fa-circle-minus:hover,
+  .fa-pen:hover,
   .fa-eye:hover {
-    color: rgba(0, 0, 0, 0.651);
+    color: rgba(0, 0, 0, 0.651) !important;
     cursor: pointer;
   }

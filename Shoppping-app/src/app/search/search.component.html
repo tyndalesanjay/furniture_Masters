@@ -103,7 +103,7 @@
           <a
             class="popular-products-item media"
             routerLink="/singleproduct"
-            *ngFor="let product of products | slice: 4:7"
+            *ngFor="let product of items | slice: 4:7"
           >
             <img src="{{ product.imageUrl }}" alt="" class="img-fluid mr-4" />
             <div class="media-body">

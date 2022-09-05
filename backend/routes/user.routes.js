@@ -3,7 +3,7 @@ const {
     createUser,
     updateUser,
     getAllUsers,
-    getUsersbyId,
+    getUsersById,
     deleteUserById
 } = require('../controller/user.controller')
 
@@ -11,6 +11,6 @@ const router = express.Router();
 
 router.route('/').post(createUser).get(getAllUsers);
 
-router.route('/users/:id').delete(deleteUserById).get(getUsersbyId).patch(updateUser)
+router.route('/users/:id').delete(deleteUserById).get(getUsersById).patch(updateUser)
 
 module.exports = router;

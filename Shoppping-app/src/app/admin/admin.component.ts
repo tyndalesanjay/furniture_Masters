@@ -5,6 +5,7 @@ import { Order } from '../interfaces/order.interface';
 import { DataService } from '../services/data.service';
 import { AuthService } from '../services/auth.service';
 import { OrderService } from '../services/order.service';
+import { ContactService } from '../services/contact.service';
 
 @Component({
   selector: 'app-admin',
@@ -12,17 +13,19 @@ import { OrderService } from '../services/order.service';
   styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent implements OnInit {
-  productLength = '';
+  productLength: any;
+  orderLength: any;
+  contactLength: any;
   products: ItemInterface[] = [];
   orders: Order[] = [];
   toggle: Boolean = true;
   p: any;
-  orderLength: any;
   
   constructor(
     private dataService: DataService,
     public auth: AuthService,
     private orderService: OrderService,
+    private contactService: ContactService,
     private router: Router
   ) {}
 
@@ -44,6 +47,10 @@ export class AdminComponent implements OnInit {
         console.log(this.orders);
       }
     });
+
+    this.contactService.getAll().subscribe((data: any) => {
+      this.contactLength = data.length
+    })
   }
 
   // Hide the menu.

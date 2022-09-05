@@ -21,7 +21,7 @@ export class AuthService {
   }
 
   // private uriseg = '/api/login';
-  private uriseg = '/api/login';
+  private uriseg = 'http://localhost:5000/api/login';
   private decodedToken;
 
   constructor(private http: HttpClient) {

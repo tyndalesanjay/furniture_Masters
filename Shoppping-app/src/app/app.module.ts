@@ -28,6 +28,9 @@ import { ListProductsComponent } from './list-products/list-products.component';
 import { ViewProductsComponent } from './view-products/view-products.component';
 import { SearchComponent } from './search/search.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { ContactListComponent } from './contact-list/contact-list.component';
+import { ViewContactComponent } from './view-contact/view-contact.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,10 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
     ListProductsComponent,
     ViewProductsComponent,
     SearchComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    ContactUsComponent,
+    ContactListComponent,
+    ViewContactComponent
   ],
   imports: [
     BrowserModule,

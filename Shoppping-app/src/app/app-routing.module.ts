@@ -16,6 +16,9 @@ import { ListProductsComponent } from './list-products/list-products.component';
 import { ViewProductsComponent } from './view-products/view-products.component';
 import { SearchComponent } from './search/search.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { ContactListComponent } from './contact-list/contact-list.component';
+import { ViewContactComponent } from './view-contact/view-contact.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -27,13 +30,16 @@ const routes: Routes = [
   { path: 'profile-details/:id', component: ProfileDetailsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'search/:key', component: SearchComponent },
+  { path: 'contact-us', component: ContactUsComponent },
+  { path: 'view-order/:id', component: OrderDetailsComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
   { path: 'add-product', component: AddProductComponent, canActivate: [AuthGuard] },
   { path: 'update-product/:id', component: UpdateProductComponent, canActivate: [AuthGuard] },
   { path: 'product-list', component: ListProductsComponent, canActivate: [AuthGuard] },
   { path: 'view-product/:id', component: ViewProductsComponent, canActivate: [AuthGuard]},
   { path: 'order', component: OrdersComponent, canActivate: [AuthGuard]},
-  { path: 'view-order/:id', component: OrderDetailsComponent },
+  { path: 'message-list', component: ContactListComponent, canActivate: [AuthGuard]},
+  { path: 'view-message/:id', component: ViewContactComponent,  canActivate: [AuthGuard]},
   { path: '**', component: HomeComponent }  
 ];
 

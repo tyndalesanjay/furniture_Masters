@@ -68,4 +68,10 @@ export class UpdateProductComponent implements OnInit {
         }
       });
   }
+
+  // Logs the user out.
+  logout(): void {
+    this.auth.logout();
+    this.router.navigate(['/login'], { queryParams: { loggedOut: 'success' } });
+  }
 }

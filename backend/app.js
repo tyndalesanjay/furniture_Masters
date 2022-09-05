@@ -9,6 +9,7 @@ const indexRoute = require('./routes/index.routes');
 const itemRoute = require('./routes/item.routes');
 const cartRoute = require('./routes/cart.routes');
 const orderRoute = require('./routes/order.routes')
+const contactRoute =  require('./routes/contact.route')
 
 const PORT = process.env.PORT || 5000;
 
@@ -36,6 +37,7 @@ app.use('/api/items_list', itemRoute);
 app.use('/api/users', userRoute);
 app.use('/api/Cart', cartRoute);
 app.use('/api/order', orderRoute);
+app.use('/api/messages', contactRoute)
 
 
 

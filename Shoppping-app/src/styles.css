@@ -183,7 +183,7 @@ summary .fa-angle-down{
     justify-content: center;
 }
 
-summary .fa-spray-can, summary .fa-bag-shopping, summary .fa-house-user, summary .fa-splotch{
+summary .fa-bag-shopping, summary .fa-house-user, summary .fa-splotch, summary .fa-message {
     margin-right: 1vw;
     color: rgb(47, 47, 47);
 }

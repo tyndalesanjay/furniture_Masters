@@ -11,6 +11,7 @@ import { ItemInterface } from '../interfaces/items';
 export class SearchComponent implements OnInit {
   refreshed = true;
   products: ItemInterface[] = [];
+  items: ItemInterface[] = [];
   results: any = '';
   p: any;
 
@@ -30,6 +31,13 @@ export class SearchComponent implements OnInit {
     this.router.routeReuseStrategy.shouldReuseRoute = () => {
       return false;
     };
+
+    this.dataService.getAllItems().subscribe((data: any) => {
+      this.items = data.data
+      console.log('items', this.items);
+      
+    })
+
   }
 
   // Gets Search Results.
