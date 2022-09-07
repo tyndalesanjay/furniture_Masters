@@ -442,7 +442,7 @@ a.text-primary:hover {
 
 .page-header {
   background: #b5b2b2;
-  /* background: url("") no-repeat 50% 50%; */
+  background: url("https://cdn.discordapp.com/attachments/889362805713678407/1016357255962185738/CollectionABanner_Dreamur_Bedroom.jpg") no-repeat 50% 50%;
   background-size: cover;
   padding: 60px 0px;
   position: relative;
@@ -1105,7 +1105,7 @@ a.text-primary:hover {
 
 .single-product .breadcrumb li {
   color: #000;
-  font-weight: 200;
+  font-weight: 900;
 }
 
 .single-product .breadcrumb li a {

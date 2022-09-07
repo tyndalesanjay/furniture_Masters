@@ -44,7 +44,7 @@
                   <th class="product-remove"></th>
                 </tr>
               </thead>
-
+              
               <tbody>
                 <tr
                   class="cart_item"
@@ -77,12 +77,19 @@
                     <button
                       class="btn btn-danger p-1 rounded-2"
                       (click)="delete_item(items._id)"
+                      data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                     >
                       remove
                     </button>
                   </td>
                   <br />
                 </tr>
+                  <div class="text-center" *ngIf="noItems">
+                    <img src="https://cdn.discordapp.com/attachments/889362805713678407/1016935338406592572/empty.png" width="" alt="Cart Empty">
+                    <br>
+                    <h4>Your Cart is Empty</h4>
+                  </div>
+
                 <div class="paginate">
                   <pagination-controls
                     (pageChange)="p = $event"
@@ -111,7 +118,8 @@
   </div>
   <br />
 </section>
-<!-- Modal -->
+
+<!--CheckOut Modal -->
 <div
   class="modal fade"
   id="checkout"
@@ -173,6 +181,25 @@
           </button>
         </div>
       </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Delete Modal  -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="windowReload()"></button>
+      </div>
+      <div class="modal-body">
+        <h5 class="modal-title" id="staticBackdropLabel">"Product has been Deleted from Cart!</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" routerLink="/shop" data-bs-dismiss="modal">Continue Shopping</button>
+        <!-- <button type="button" class="btn btn-primary" routerLink="/cart" data-bs-dismiss="modal"></button> -->
+      </div>
     </div>
   </div>
 </div>

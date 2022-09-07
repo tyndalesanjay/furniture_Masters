@@ -8,47 +8,48 @@ import { CartService } from '../services/cart.service';
 @Component({
   selector: 'app-singleproduct',
   templateUrl: './singleproduct.component.html',
-  styleUrls: ['./singleproduct.component.css']
+  styleUrls: ['./singleproduct.component.css'],
 })
 export class SingleproductComponent implements OnInit {
+  products: any = [];
 
-  products: any = []
-
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private dataService: DataService, private cartService: CartService, private fb: FormBuilder) { }
-
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private dataService: DataService,
+    private cartService: CartService,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
-    const id = this.activatedRoute.snapshot.paramMap.get('id')
-    this.getProductbyId(id)
-
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.getProductbyId(id);
   }
 
   addCart = this.fb.group({
-    productID: ['', Validators.required]
-  })
+    productID: ['', Validators.required],
+  });
 
   getProductbyId(id: any) {
     this.dataService.getItemsById(id).subscribe((data: any) => {
-      this.products = data.data
+      this.products = data.data;
       this.addCart.setValue({
-        productID: this.products._id
-      })
+        productID: this.products._id,
+      });
       console.log(this.addCart.value);
-    })
+    });
   }
 
-  addToCart(){
+  addToCart() {
     this.cartService.add_item(this.addCart.value).subscribe((data: any) => {
-      if(!data) {
-        alert('Please try adding the product to Cart Again')
+      if (data) {
+        console.log(data);
+      } else {
+        alert('Please try adding the product to Cart Again');
         console.error();
         console.log();
-      } else {
-        alert('Product Added')
-        this.router.navigate(['/cart'])
       }
-    })
+    });
     console.log();
   }
-
 }

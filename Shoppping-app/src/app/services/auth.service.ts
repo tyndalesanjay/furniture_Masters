@@ -20,8 +20,8 @@ export class AuthService {
     throw new Error('Method not implemented.');
   }
 
-  // private uriseg = '/api/login';
-  private uriseg = 'http://localhost:5000/api/login';
+  // private REST_API_SERVER = '/api/login';
+  private REST_API_SERVER = 'http://localhost:5000/api/login';
   private decodedToken;
 
   constructor(private http: HttpClient) {
@@ -29,12 +29,12 @@ export class AuthService {
    }
 
   public register(userData: any): Observable<any> {
-    const URI = this.uriseg + '/register';
+    const URI = this.REST_API_SERVER + '/register';
     return this.http.post(URI, userData);
   }
 
   public login(userData: any): Observable<any> {
-    const URI = this.uriseg + '/login';
+    const URI = this.REST_API_SERVER + '/login';
     return this.http.post(URI, userData).pipe(map(token => {
       return this.saveToken(token);
     }));

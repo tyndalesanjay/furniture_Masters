@@ -50,15 +50,4 @@
     /* margin-right: 1vw; */
   }
   
-  .fa-circle-minus,
-  .fa-pen,
-  .fa-eye {
-    color: #fb5c42 !important;
-  }
-
-  .fa-circle-minus:hover,
-  .fa-pen:hover,
-  .fa-eye:hover {
-    color: rgba(0, 0, 0, 0.651) !important;
-    cursor: pointer;
-  }
+  

@@ -15,6 +15,7 @@ export class CartComponent implements OnInit {
   items: any[] = [];
   total_Price: any = 0;
   p: any;
+  noItems: Boolean = false;
 
   orderForm = {
     customername: '',
@@ -38,6 +39,10 @@ export class CartComponent implements OnInit {
     this.cartService.get_items().subscribe((data: any) => {
       this.items = data.results;
       this.cart_Length = data.length;
+
+      if (data.length <= 0) {
+        this.noItems = true
+      }
       
       // this.createOrder()
       this.items.forEach((data) => {
@@ -53,10 +58,13 @@ export class CartComponent implements OnInit {
 
   }
 
+  windowReload() {
+    window.location.reload()
+  }
+
   delete_item(id: any) {
     this.cartService.delete_item(id).subscribe(() => {
-      alert('Product removed!');
-      window.location.reload();
+      // window.location.reload();
     });
   }
 

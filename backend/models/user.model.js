@@ -4,9 +4,6 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
-    _id: {
-      type: Schema.Types.ObjectId,
-    },
     // Returns a username for the user.
     username: {
       type: String,
