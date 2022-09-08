@@ -17,7 +17,6 @@ import { CartComponent } from './cart/cart.component';
 import { OrdersComponent } from './orders/orders.component';
 import { SignupComponent } from './signup/signup.component';
 import { ShopComponent } from './shop/shop.component';
-import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 import { LoginComponent } from './login/login.component';
 import { FilterPipe } from 'src/pipes/filter.pipe';
 import { SortPipe } from 'src/pipes/sort.pipe';
@@ -43,7 +42,6 @@ import { ViewContactComponent } from './view-contact/view-contact.component';
     OrdersComponent,
     SignupComponent,
     ShopComponent,
-    ProfileDetailsComponent,
     LoginComponent,
     FilterPipe,
     SortPipe,

@@ -26,6 +26,7 @@ export class CartComponent implements OnInit {
 
   constructor(private cartService: CartService, private orderService: OrderService, private fb: FormBuilder) {}
 
+  // Generate a random string.
   randomString(length: any) {
     var randomChars = 'abcdefghijklmnopqrstuvwxyz0123456789';
     var result = '';
@@ -64,7 +65,6 @@ export class CartComponent implements OnInit {
 
   delete_item(id: any) {
     this.cartService.delete_item(id).subscribe(() => {
-      // window.location.reload();
     });
   }
 
@@ -89,7 +89,6 @@ export class CartComponent implements OnInit {
       } else {
         console.error();
         alert('Order fail to Place')
-        
       }
     })
   }

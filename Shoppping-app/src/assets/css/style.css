@@ -466,7 +466,6 @@ a.text-primary:hover {
   top: 20px;
   right: 16px;
   display: inline-block;
-  float: right;
 }
 
 .overlay.open {

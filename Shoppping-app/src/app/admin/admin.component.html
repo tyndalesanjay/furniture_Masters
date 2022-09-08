@@ -128,8 +128,6 @@
                       <td><a routerLink="/view-order/{{order._id}}">{{order.customername}}</a></td>
                       <td>{{order.ordernumber}}</td>
                       <td>{{order.status}}
-                        <!-- <li *ngFor="let product of order.products">{{product.name}}</li> -->
-                      
                       <td>
                         <a (click)="deleteOrder(order._id)">
                           <i class="fa-solid fa-user-minus"></i>

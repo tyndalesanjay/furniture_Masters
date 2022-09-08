@@ -18,10 +18,7 @@ export class ContactUsComponent implements OnInit {
     email: ['', Validators.required],
     message: ['', Validators.required]
   })
-
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   onSubmit() {
     this.contactService.sendMessage(this.contactForm.value).subscribe((data: any) => {

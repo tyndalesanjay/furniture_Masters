@@ -47,13 +47,15 @@
 
             <div class="form-group mb-4">
               <label for="passwordConfirmation">Confirm Password</label>
-              <input type="password" class="form-control" [(ngModel)] = "formData.passwordConfirmation" #passwordConfirmation = "ngModel" name="passwordConfirmation" required>
+              <input type="password" class="form-control" [(ngModel)] = "formData.passwordConfirmation" #passwordConfirmation = "ngModel" 
+              name="passwordConfirmation" required>
             </div>
 
             <div *ngIf="passwordConfirmation.invalid && (passwordConfirmation.dirty || passwordConfirmation.touched)" class="alert alert-danger">
             <div *ngIf="passwordConfirmation.errors?.['required']">Confirm Password is required</div>
           </div>
-            <button (click) = "register()" type="submit"  [disabled]= "!registerForm.form.valid" type="submit" class="btn btn-main mt-3 btn-block">Signup</button>
+            <button (click) = "register()" type="submit"  [disabled]= "!registerForm.form.valid" type="submit" 
+            class="btn btn-main mt-3 btn-block">Signup</button>
           </form>
         </div>
       </div>

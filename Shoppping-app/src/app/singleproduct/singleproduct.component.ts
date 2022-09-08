@@ -23,14 +23,14 @@ export class SingleproductComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.getProductbyId(id);
+    this.getProductById(id);
   }
 
   addCart = this.fb.group({
     productID: ['', Validators.required],
   });
 
-  getProductbyId(id: any) {
+  getProductById(id: any) {
     this.dataService.getItemsById(id).subscribe((data: any) => {
       this.products = data.data;
       this.addCart.setValue({

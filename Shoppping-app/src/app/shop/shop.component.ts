@@ -10,12 +10,12 @@ import { DataService } from '../services/data.service';
 export class ShopComponent implements OnInit {
 
   products: ItemInterface[] = [];
-
   collection: any = [];
   page: any;
 
   constructor(private dataService: DataService) { }
 
+  // Subscribes to all products.
   getAllitems() {
     this.dataService.getAllItems().subscribe((data: any) => {
       this.products = data.data;
@@ -28,7 +28,8 @@ export class ShopComponent implements OnInit {
     this.getCollectionData();
   }
 
-  getCollectionData() {
+  // Load the collection data.
+    getCollectionData() {
     fetch('https://jsonplaceholder.typicode.com/todos')
       .then(response => response.json())
       .then(json => {

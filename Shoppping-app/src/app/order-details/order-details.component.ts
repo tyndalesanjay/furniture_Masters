@@ -43,7 +43,6 @@ export class OrderDetailsComponent implements OnInit {
         this.statusForm.setValue({
           status: this.orders.status
         })
-        // console.log(this.status);
       } else {
         console.error();
       }
@@ -54,8 +53,10 @@ export class OrderDetailsComponent implements OnInit {
     this.orderService.updateItem(id, this.statusForm.value).subscribe((data: any) => {
       if (data) {
         console.log(data);
+        this.router.navigate(['/admin'])
       } else {
         console.error();
+        
       }
     });
   }

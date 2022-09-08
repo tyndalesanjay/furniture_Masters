@@ -20,11 +20,9 @@ export class ListProductsComponent implements OnInit {
     this.dataService.adminGetItems().subscribe((data: any) => {
       if(!data) {
         console.error();
-        
       } else {
         this.products = data.data
         console.error();
-
       }
     })
   }

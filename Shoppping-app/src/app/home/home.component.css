@@ -7,3 +7,8 @@
 .right-image {
     position: relative;
 }
+
+.banner {
+    margin-left: 18%;
+    transform: translate(10px, 10px);
+}

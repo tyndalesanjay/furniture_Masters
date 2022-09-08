@@ -8,28 +8,29 @@ import { Message } from '../interfaces/message.interface';
 })
 export class ContactService {
 
-  private baseUrl = 'http://localhost:5000/api/messages'
+  // private REST_API_SERVER = '/api/order'
+  private REST_API_SERVER = 'http://localhost:5000/api/messages'
 
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Message[]> {
-    return this.http.get<Message[]>(this.baseUrl)
+    return this.http.get<Message[]>(this.REST_API_SERVER)
   }
 
   getById(id: string): Observable<Message[]> {
-    return this.http.get<Message[]>(`${this.baseUrl}/${id}`)
+    return this.http.get<Message[]>(`${this.REST_API_SERVER}/${id}`)
   }
 
   sendMessage(messageInfo: any): Observable<Message[]> {
-    return this.http.post<Message[]>(this.baseUrl, messageInfo)
+    return this.http.post<Message[]>(this.REST_API_SERVER, messageInfo)
   }
 
   updateMessage(id: string, messageUpdate: any): Observable<Message[]> {
-    return this.http.put<Message[]>(`${this.baseUrl}/${id}`, messageUpdate)
+    return this.http.put<Message[]>(`${this.REST_API_SERVER}/${id}`, messageUpdate)
   }
 
   deleteMessage(id: string): Observable<Message[]> {
-    return this.http.delete<Message[]>(`${this.baseUrl}/${id}`)
+    return this.http.delete<Message[]>(`${this.REST_API_SERVER}/${id}`)
   }
 }
 

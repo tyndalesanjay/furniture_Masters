@@ -44,6 +44,8 @@ export class UpdateProductComponent implements OnInit {
     this.dataService.getItemsById(id).subscribe((data: any) => {
       this.product = data.data;
       console.log(this.product);
+
+      // Updates the value of the product.
       this.updateProduct.setValue({
         name: this.product.name,
         imageUrl: this.product.imageUrl,
@@ -52,6 +54,7 @@ export class UpdateProductComponent implements OnInit {
         quantity: this.product.quantity,
         price: this.product.price,
       });
+      
     });
   }
 

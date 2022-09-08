@@ -29,7 +29,6 @@ app.use(bodyParser.json());
 
 let corsOptions = {
   origin: "http://localhost:4200",
-  // origin: 'https://furniture-masters.herokuapp.com/',
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 

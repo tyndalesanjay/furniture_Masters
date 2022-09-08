@@ -15,8 +15,6 @@ export class AddProductComponent implements OnInit {
 
   constructor(private dataService: DataService, private fb: FormBuilder, private router: Router, public auth: AuthService) { }
 
-
-
   ngOnInit(): void {
   }
 

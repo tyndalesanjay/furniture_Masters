@@ -1,4 +1,10 @@
 input,
 textarea {
-    background-color: aliceblue;
+    background-color: aliceblue ;
+}
+
+.border {
+    background-color: white !important;
+    border: 1px solid black !important;
+    outline: 1px !important;
 }

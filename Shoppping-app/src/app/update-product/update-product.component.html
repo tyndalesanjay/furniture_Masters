@@ -90,17 +90,11 @@
       </div>
     </div>
 
-    <h1>Add New Product</h1>
+    <h1>Update Product</h1>
 
     <div class="prodBrands-tbls-container">
       <div class="container col-md-9 col-lg-7 col-xl-8 mx-auto text-center">
         <div class="form p-4 border">
-          <!-- <div class="col-12">
-                     <div class="bg-primary opacity-75 bg-gradient text-center text-white fw-bolder fs-3">
-                         Add New Product
-                     </div>
-                     <hr>
-                 </div> -->
           <form
             class="row g-3 productForm"
             [formGroup]="updateProduct"
@@ -161,6 +155,7 @@
                 rows="10"
                 class="form-control"
                 formControlName="description"
+                (resize)="true"
               ></textarea>
             </div>
             <div class="col-12 text-center">
@@ -168,7 +163,7 @@
                 type="submit"
                 class="btn btn-primary w-50 bg-gradient p-1 text-center mb-2 text-white fw-bolder fs-3"
               >
-                Add Product
+                Update Product
               </button>
             </div>
           </form>

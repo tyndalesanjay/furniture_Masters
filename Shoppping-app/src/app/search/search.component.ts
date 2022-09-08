@@ -37,7 +37,6 @@ export class SearchComponent implements OnInit {
       console.log('items', this.items);
       
     })
-
   }
 
   // Gets Search Results.
