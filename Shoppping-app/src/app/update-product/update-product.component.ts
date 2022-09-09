@@ -40,10 +40,10 @@ export class UpdateProductComponent implements OnInit {
     this.toggle = !this.toggle;
   }
 
+  // Gets product and sets the value of the product.
   getProduct(id: any) {
     this.dataService.getItemsById(id).subscribe((data: any) => {
       this.product = data.data;
-      console.log(this.product);
 
       // Updates the value of the product.
       this.updateProduct.setValue({
@@ -54,14 +54,12 @@ export class UpdateProductComponent implements OnInit {
         quantity: this.product.quantity,
         price: this.product.price,
       });
-      
     });
   }
 
+  // Updates the product.
   updateitem(id: any) {
-    this.dataService
-      .updateItem(id, this.updateProduct.value)
-      .subscribe((data: any) => {
+    this.dataService.updateItem(id, this.updateProduct.value).subscribe((data: any) => {
         if (!data) {
           console.error();
           alert('Error');

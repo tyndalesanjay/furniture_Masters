@@ -22,11 +22,10 @@ export class OrdersComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Subscribes to orders.
     this.orderService.getOrders().subscribe((data: any) => {
       if (data) {
         this.orders = data.results;
-        console.log(this.orders);
-        console.error();
       } else {
         console.error();
       }

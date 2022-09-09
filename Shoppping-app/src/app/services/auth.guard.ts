@@ -32,6 +32,7 @@ export class AuthGuard implements CanActivate {
     return false;
   }
 
+  // Determines if the current user can activate the given route.
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
     this.url = state.url;
     if (this.auth.isAuthenticated()) {

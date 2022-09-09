@@ -15,7 +15,6 @@ export class SearchComponent implements OnInit {
   results: any = '';
   p: any;
 
-  // Creates a constructor for the given route.
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -32,9 +31,9 @@ export class SearchComponent implements OnInit {
       return false;
     };
 
+    // Subscribe to all items.
     this.dataService.getAllItems().subscribe((data: any) => {
       this.items = data.data
-      console.log('items', this.items);
       
     })
   }
@@ -50,7 +49,6 @@ export class SearchComponent implements OnInit {
         alert(`No Products with ${key} Redirecting to Shopping page`);
         console.error();
       }
-      console.error();
     });
   }
 }

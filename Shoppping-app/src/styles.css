@@ -31,7 +31,7 @@ body {
  =============================================================*/
 
 .body_contain {
-  width: 98.7vw;
+  width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: space-between;
@@ -185,7 +185,8 @@ summary .fa-angle-down {
 summary .fa-bag-shopping,
 summary .fa-house-user,
 summary .fa-splotch,
-summary .fa-message {
+summary .fa-message,
+summary .fa-user {
   margin-right: 1vw;
   color: rgb(47, 47, 47);
 }
@@ -217,13 +218,12 @@ summary .fa-message {
 .option p:hover a {
   border-radius: 5px;
   border-left: 7px solid rgb(28, 114, 147);
-  /* color: rgb(255, 255, 255); */
   color: rgb(28, 114, 147);
 }
 
 .logOut {
   position: absolute;
-  bottom: 1vw;
+  margin-top: 2vw;
   left: 2vw;
   padding: 0.5vw 1vw;
   color: white;
@@ -250,7 +250,6 @@ summary .fa-message {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* border-bottom: 1px solid rgb(214, 214, 214); */
   box-shadow: 4px 0px 5px 2px rgba(10, 10, 10, 0.384);
   background-color: rgb(255, 255, 255);
   position: fixed;
@@ -268,10 +267,8 @@ summary .fa-message {
 
 .menu_bars .fa-bars {
   font-size: 2vw;
-  /* opacity: 0.7; */
   cursor: pointer;
   transition: 0.1s ease;
-  /* color: rgb(0, 0, 0); */
   color: rgb(28, 114, 147);
 }
 .menu_bars .fa-bars:hover {
@@ -321,8 +318,7 @@ summary .fa-message {
 
 /* ------------------ BODY - MAIN / HEADING ---------------------- */
 .body_main h1 {
-  width: 95%;
-  /* border: 1px solid red; */
+  width: 100%;
   display: block;
   margin: 7vw auto 0 auto;
   font-size: 2.5vw;
@@ -348,7 +344,6 @@ summary .fa-message {
 }
 
 .product a img {
-  /* border: 2px solid red; */
   height: 25vw;
   width: 40vw;
 }

@@ -8,8 +8,8 @@ import { Cart } from '../interfaces/cart.interface';
 })
 export class CartService {
 
-  // private REST_API_SERVER = '/api/Cart';
-  private REST_API_SERVER = 'http://localhost:5000/api/Cart';
+  private REST_API_SERVER = '/api/Cart';
+  // private REST_API_SERVER = 'http://localhost:5000/api/Cart';
 
   constructor(private http: HttpClient) {}
 
@@ -22,7 +22,7 @@ export class CartService {
   }
 
   deleteAll(): Observable<Cart[]> {
-    return this.http.delete<Cart[]>(`${this.REST_API_SERVER + '/delete'}`)
+    return this.http.delete<Cart[]>(this.REST_API_SERVER)
   }
 
   delete_item(id: any): Observable<Cart[]> {

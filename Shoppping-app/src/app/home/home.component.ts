@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit {
   getAllitems() {
     this.dataService.getAllItems().subscribe((data: any) => {
       this.products = data.data;
-      console.log(this.products);
     });
   }
 

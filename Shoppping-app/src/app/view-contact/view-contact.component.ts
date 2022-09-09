@@ -19,13 +19,14 @@ export class ViewContactComponent implements OnInit {
     this.getMessage(this.route.snapshot.paramMap.get('id'));
   }
 
+  // Logs a message.
   getMessage(id: any) {
     this.contactService.getById(id).subscribe((data: any) => {
       this.message = data.results
-      console.log(this.message)
     })
   }
 
+  // Delete a Message
   deleteMessage(id: any) {
     this.contactService.deleteMessage(id).subscribe((data: any) => {
       if(!data) {

@@ -37,6 +37,7 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Gets the cart items from the cart service.
     this.cartService.get_items().subscribe((data: any) => {
       this.items = data.results;
       this.cart_Length = data.length;
@@ -49,31 +50,31 @@ export class CartComponent implements OnInit {
       this.items.forEach((data) => {
         this.total_Price = this.total_Price + data.productID.price;
         this.orderForm.orderTotal = this.total_Price
-        console.log('total =', this.total_Price);
 
       });
       console.error();
     });
-
-    console.log('OrderForm responds', this.orderForm);
-
   }
 
+  // Reloads the window.
   windowReload() {
     window.location.reload()
   }
 
+  // Deletes a cart item.
   delete_item(id: any) {
     this.cartService.delete_item(id).subscribe(() => {
     });
   }
 
+  // Deletes all carts.
   deleteAll() {
     this.cartService.deleteAll().subscribe(() => {
       window.location.reload();
     });
   }
 
+  // Places an order.
   createOrder() {
     this.items.forEach(item =>{
       this.orderForm.products.push(item.productID._id)
@@ -83,8 +84,6 @@ export class CartComponent implements OnInit {
     this.orderService.createOrder(this.orderForm).subscribe((data: any) => {
       if(data) {
         alert('Order Placed Successfully')
-        console.log(data);
-        // console.error();
         this.deleteAll()
       } else {
         console.error();

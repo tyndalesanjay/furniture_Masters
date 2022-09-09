@@ -27,10 +27,12 @@ export class ListProductsComponent implements OnInit {
     })
   }
 
+  // Hide the menu.
   hideMenu(){
     this.toggle = !this.toggle
   }
 
+  // Deletes a product.
   deleteProduct(id: string) {
     this.dataService.deleteItem(id).subscribe((data: any) => {
       if(!data) {
@@ -42,7 +44,8 @@ export class ListProductsComponent implements OnInit {
       }
     })
   }
-
+  
+  // Logs the user out.
   logout(): void {
     this.auth.logout();
     this.router.navigate(['/login'], { queryParams: { loggedOut: 'success' } });

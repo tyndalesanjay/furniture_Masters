@@ -34,7 +34,6 @@ export class AdminComponent implements OnInit {
     this.dataService.adminGetItems().subscribe((data: any) => {
       this.products = data.data;
       this.productLength = data.data.length;
-      console.log(this.products);
     });
 
     // Subscribes to orders.
@@ -44,10 +43,10 @@ export class AdminComponent implements OnInit {
       } else {
         this.orders = data.results
         this.orderLength = data.length
-        console.log(this.orders);
       }
     });
 
+    // Subscribe to all contacts.
     this.contactService.getAll().subscribe((data: any) => {
       this.contactLength = data.length
     })
@@ -71,6 +70,7 @@ export class AdminComponent implements OnInit {
     });
   }
 
+  // Deletes an order.
   deleteOrder(id: string) {
     this.orderService.deleteItem(id).subscribe((data: any) => {
       if (data) {

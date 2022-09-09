@@ -26,28 +26,29 @@ export class SingleproductComponent implements OnInit {
     this.getProductById(id);
   }
 
+  // Add a new cart to the product.
   addCart = this.fb.group({
     productID: ['', Validators.required],
   });
 
+  // Adds a product to the cart.
   getProductById(id: any) {
     this.dataService.getItemsById(id).subscribe((data: any) => {
       this.products = data.data;
       this.addCart.setValue({
         productID: this.products._id,
       });
-      console.log(this.addCart.value);
     });
   }
 
+  // Adds the product to the cart
   addToCart() {
     this.cartService.add_item(this.addCart.value).subscribe((data: any) => {
       if (data) {
-        console.log(data);
+        console.log("Data Added To Cart");
       } else {
         alert('Please try adding the product to Cart Again');
         console.error();
-        console.log();
       }
     });
     console.log();

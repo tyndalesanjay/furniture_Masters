@@ -11,6 +11,9 @@
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
+.products > tbody > tr {
+  border-bottom: 2px solid grey;
+}
 .products > thead > tr > h1,
 .contacts > thead > tr > h1 {
   font-size: 2vw;
@@ -25,10 +28,9 @@ td {
   border-collapse: separate;
   padding: 0.453vw;
 }
+
 th {
   text-align: center;
-}
-th {
   font-size: 1.2vw;
   font-weight: bold;
 }
@@ -40,4 +42,17 @@ td {
 
 td > a {
   text-decoration: none;
+}
+
+.fa-circle-minus,
+.fa-pen,
+.fa-eye {
+  color: #fb5c42 !important;
+}
+
+.fa-circle-minus,
+.fa-pen,
+.fa-eye:hover {
+  color: rgba(0, 0, 0, 0.651);
+  cursor: pointer;
 }

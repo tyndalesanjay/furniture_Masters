@@ -2,7 +2,7 @@ const express = require("express");
 const {
   createItem,
   deleteItemById,
-  getItemsbyId,
+  getItemsById,
   updateItem,
   getAllItems,
   SearchItem,
@@ -12,8 +12,8 @@ const router = express.Router();
 
 router.route("/").post(createItem).get(getAllItems);
 
-router.get("/search/:key", SearchItem);
+router.route("/all/:key").get(SearchItem);
 
-router.route("/:id").delete(deleteItemById).get(getItemsbyId).put(updateItem);
+router.route("/:id").delete(deleteItemById).get(getItemsById).put(updateItem);
 
 module.exports = router;

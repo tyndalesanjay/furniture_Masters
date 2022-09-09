@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+    
+    // Subscribes to the route s query params.
     this.route.queryParams.subscribe((params) => {
       const key1 = 'registered';
       const key2 = 'loggedOut';
@@ -30,6 +32,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  // Initializes the login form.
   initForm(): void {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required,
@@ -38,11 +41,13 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  // Checks if the given input is valid.
   isValidInput(fieldName: string): boolean {
     return this.loginForm.controls[fieldName].invalid &&
       (this.loginForm.controls[fieldName].dirty || this.loginForm.controls[fieldName].touched);
   }
 
+  // Authenticates the user and subscribes to errors.
   login(): void {
     this.errors = [];
     this.auth.login(this.loginForm.value).subscribe((token) => {

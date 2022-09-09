@@ -28,10 +28,6 @@
           <a class="nav-link" routerLink="/">Home </a>
         </li>
 
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="#">About Us</a>
-        </li> -->
-
         <li class="nav-item dropdown dropdown-slide">
           <a
             class="nav-link dropdown-toggle"
@@ -43,21 +39,19 @@
             aria-haspopup="true"
             aria-expanded="false"
           >
-            Shop.
+            Shop
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
             <li><a routerLink="/shop">Shop</a></li>
             <li><a routerLink="/cart">Cart</a></li>
           </ul>
         </li>
-        <!-- / Blog -->
 
         <li class="nav-item">
           <a class="nav-link" routerLink="/contact-us">Contact Us</a>
         </li>
       </ul>
     </div>
-    <!-- Navbar-collapse -->
 
     <ul class="top-menu list-inline mb-0 d-none d-lg-block" id="top-menu">
       <li class="list-inline-item search-li border">
@@ -86,7 +80,6 @@
           <i class="tf-ion-android-cart"></i>
         </a>
         <div class="dropdown-menu cart-dropdown">
-          <!-- Cart Item -->
           <div class="media" *ngFor="let cart of items | slice: 0:1">
             <a routerLink="/product-single">
               <img

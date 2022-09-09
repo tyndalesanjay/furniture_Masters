@@ -34,6 +34,7 @@ export class ContactListComponent implements OnInit {
     this.router.navigate(['/login'], { queryParams: { loggedOut: 'success' } });
   }
 
+  // Deletes a message from the contact service
   deleteMessage(id: any) {
     this.contactService.deleteMessage(id).subscribe((data) => {
       if(data) {

@@ -1,22 +1,13 @@
-
-
-
-/* ------------------ BODY - MAIN / HEADING ---------------------- */
-
-
 .tables{
-    /* border: 1px solid red; */
     display: flex;
     justify-content: space-between;
     margin-top: 10vw;
-    /* align-items: baseline; */
     align-items:flex-start;
     padding: 1vw;
   
   }
   
   .products{
-    /* border: 1px solid red; */
     width: 100%;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   }
@@ -35,11 +26,9 @@
     border-collapse:separate;
     padding: 0.453vw;
   }
-  th {
-    text-align: center;
-  }
+
   th{
-    /* background: #a7acb4; */
+    text-align: center;
     font-size: 1.2vw;
     font-weight: bold;
   }
@@ -50,10 +39,7 @@
   }
   
   td>a{
-    /* border: 1px solid red; */
     text-decoration: none;
-    /* font-size: 2vw; */
-    /* margin-right: 1vw; */
   }
   
   .fa-circle-minus,

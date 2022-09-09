@@ -18,6 +18,7 @@ export class AddProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Hide the menu.
   hideMenu() {
     this.toggle = !this.toggle
   }
@@ -31,6 +32,7 @@ export class AddProductComponent implements OnInit {
     price: ['', Validators.required]
   })
 
+  // Creates a new product.
   createProduct() {
     this.dataService.createItem(this.addProduct.value).subscribe((data: any) => {
       if(!data) {
@@ -38,11 +40,11 @@ export class AddProductComponent implements OnInit {
       } else {
         alert('Added Product Successfully');
         this.router.navigate(['/admin'])
-        console.log(data);
       }
     })
   }
 
+  // Logs the user out.
   logout(): void {
     this.auth.logout();
     this.router.navigate(['/login'], { queryParams: { loggedOut: 'success' } });

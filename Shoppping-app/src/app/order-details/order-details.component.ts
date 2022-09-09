@@ -32,10 +32,12 @@ export class OrderDetailsComponent implements OnInit {
     status: ['', Validators.required],
   });
 
+  // Hide the menu.
   hideMenu() {
     this.toggle = !this.toggle;
   }
 
+  // Updates the status of an order
   getOrderById(id: any) {
     this.orderService.getItemsById(id).subscribe((data: any) => {
       if (data) {
@@ -49,10 +51,10 @@ export class OrderDetailsComponent implements OnInit {
     });
   }
 
+  // Updates the order.
   updateOrder(id: string) {
     this.orderService.updateItem(id, this.statusForm.value).subscribe((data: any) => {
       if (data) {
-        console.log(data);
         this.router.navigate(['/admin'])
       } else {
         console.error();

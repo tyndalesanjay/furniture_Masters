@@ -19,19 +19,24 @@ export class ViewProductsComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.paramMap.get('id')
-    this.getProductbyId(id)
+    this.getProductById(id)
   }
 
+  // Hide the menu.
   hideMenu(){
     this.toggle = !this.toggle
   }
 
-  getProductbyId(id: any) {
+  // Get products by id.
+  getProductById(id: any) {
     this.dataService.getItemsById(id).subscribe((data: any) => {
       this.products = data.data
+      console.log(data);
+      
     })
   }
 
+  // Delete a product
   deleteProduct(id: string) {
     this.dataService.deleteItem(id).subscribe((data: any) => {
       if(!data) {

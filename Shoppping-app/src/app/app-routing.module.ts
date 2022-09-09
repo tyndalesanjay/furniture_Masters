@@ -18,6 +18,8 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ContactListComponent } from './contact-list/contact-list.component';
 import { ViewContactComponent } from './view-contact/view-contact.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { ViewUserComponent } from './view-user/view-user.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -38,6 +40,8 @@ const routes: Routes = [
   { path: 'order', component: OrdersComponent, canActivate: [AuthGuard]},
   { path: 'message-list', component: ContactListComponent, canActivate: [AuthGuard]},
   { path: 'view-message/:id', component: ViewContactComponent,  canActivate: [AuthGuard]},
+  { path: 'user-list', component: UserListComponent,  canActivate: [AuthGuard]},
+  { path: 'view-user/:id', component: ViewUserComponent, canActivate: [AuthGuard]},
   { path: '**', component: HomeComponent }  
 ];
 

@@ -20,13 +20,13 @@ export class ContactUsComponent implements OnInit {
   })
   ngOnInit(): void {}
 
+  // Send a Message to the user.
   onSubmit() {
     this.contactService.sendMessage(this.contactForm.value).subscribe((data: any) => {
       if(!data) {
         console.error(this.contactForm.value);
         alert('Failed to send Message')
       } else {
-        console.log(data);
         alert('Your Message has been Sent, Please wait for an email from us!')
         this.router.navigate(['/home'])
       }

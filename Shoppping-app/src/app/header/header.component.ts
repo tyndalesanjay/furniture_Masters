@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
   constructor(private cartService: CartService, private dataService: DataService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    // Gets the cart items from the cart service.
     this.cartService.get_items().subscribe((data: any) => {
       this.items = data.results;
       this.cart_Length = data.length;
@@ -26,8 +27,6 @@ export class HeaderComponent implements OnInit {
           this.total_Price = this.total_Price + data.productID.price;
         console.log('total =', this.total_Price);
       });
-      // this.total_Price = this.items
-      console.log(this.items);
     });
   }
 
@@ -35,6 +34,7 @@ export class HeaderComponent implements OnInit {
     search: ['', Validators.required]
   })
 
+  // Searches for movies.
   searchProducts(): void{
     if (this.search === '') {
       this.router.navigate([`/shop`])
@@ -45,6 +45,7 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  // Deletes an item from the cart.
   delete_item(id: any) {
     this.cartService.delete_item(id).subscribe(() => {
       alert('Item removed!');

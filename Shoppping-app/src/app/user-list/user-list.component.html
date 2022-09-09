@@ -108,84 +108,39 @@
       </div>
     </div>
 
-    <h1>Add New Product</h1>
-
-    <div class="prodBrands-tbls-container">
-      <div class="container col-md-9 col-lg-7 col-xl-8 mx-auto text-center">
-        <div class="form p-4 border">
-          <form
-            class="row g-3 productForm"
-            [formGroup]="addProduct"
-            (submit)="createProduct()"
+    <div class="tables">
+      <table class="products">
+        <thead>
+          <tr></tr>
+          <tr>
+            <th>Username</th>
+            <th>User Email</th>
+            <th>Data Added</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="
+              let items of users
+                | paginate: { itemsPerPage: 10, currentPage: p }
+            "
           >
-            <div class="col-12">
-              <label for="name" class="form-label">Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="name"
-                formControlName="name"
-              />
-            </div>
-            <div class="col-md-6">
-              <label for="image" class="form-label">Image</label>
-              <input
-                type="text"
-                class="form-control"
-                id="image"
-                formControlName="imageUrl"
-              />
-            </div>
-            <div class="col-6">
-              <label for="category" class="form-label">Category</label>
-              <input
-                type="text"
-                class="form-control"
-                id="category"
-                formControlName="category"
-              />
-            </div>
-            <div class="col-md-6">
-              <label for="qauntity" class="form-label">Quantity</label>
-              <input
-                type="text"
-                class="form-control"
-                id="qauntity"
-                formControlName="quantity"
-              />
-            </div>
-            <div class="col-md-6">
-              <label for="price" class="form-label">Price</label>
-              <input
-                type="number"
-                class="form-control"
-                id="price"
-                formControlName="price"
-              />
-            </div>
-            <div class="col-md-12">
-              <label for="description" class="form-label">Description</label
-              ><br />
-              <textarea
-                name="description"
-                id=""
-                cols="30"
-                rows="10"
-                class="form-control"
-                formControlName="description"
-              ></textarea>
-            </div>
-            <div class="col-12 text-center">
-              <button
-                type="submit"
-                class="btn btn-primary w-50 bg-gradient p-1 text-center mb-2 text-white fw-bolder fs-3"
-              >
-                Add Product
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
+            <td style="width: 25vw">{{ items.username }}</td>
+            <td>{{ items.email }}</td>
+            <td>{{ items.createdAt | date }}</td>
+            <td>
+              <a routerLink="/view-user/{{ items._id }}">
+                <i class="fa-solid fa-pen"></i>
+              </a>
+              <a (click)="deleteUser(items._id)">
+                <i class="fa-solid fa-circle-minus"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </table>
     </div>
   </section>
 </div>

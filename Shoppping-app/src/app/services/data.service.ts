@@ -27,7 +27,7 @@ export class DataService {
   }
 
   search(key:any): Observable<ItemInterface[]> {
-    return this.httpClient.get<ItemInterface[]>(`${this.REST_API_SERVER + '/search'}/${key}`)
+    return this.httpClient.get<ItemInterface[]>(`${this.REST_API_SERVER + "/all"}/${key}`)
   }
 
   updateItem(id: any, data: any): Observable<any> {

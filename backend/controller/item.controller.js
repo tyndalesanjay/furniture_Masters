@@ -17,7 +17,6 @@ exports.SearchItem = async (req, res, next) => {
       $or: [{ name: { $regex: req.params.key, $options: "i" } }],
       $or: [{ category: { $regex: req.params.key, $options: "i" } }],
     });
-    console.log(items);
     res.status(200).json({
       status: "Success",
       length: items.length,
@@ -33,7 +32,7 @@ exports.SearchItem = async (req, res, next) => {
 };
 
 // Get items/products by id
-exports.getItemsbyId = async (req, res) => {
+exports.getItemsById = async (req, res) => {
   try {
     const items = await Items.findById(req.params.id);
     JSONResponse.success(res, "Success", items, 200);
