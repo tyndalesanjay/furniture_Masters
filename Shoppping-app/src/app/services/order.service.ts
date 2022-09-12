@@ -8,8 +8,8 @@ import { map, Observable, tap } from 'rxjs';
 })
 export class OrderService {
 
-  // private REST_API_SERVER = '/api/order'
-  private REST_API_SERVER = 'http://localhost:5000/api/order'
+  private REST_API_SERVER = '/api/order'
+  // private REST_API_SERVER = 'http://localhost:5000/api/order'
 
   constructor(private http: HttpClient) { }
 

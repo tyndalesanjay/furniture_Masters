@@ -37,8 +37,8 @@ export class UserListComponent implements OnInit {
   // Deletes a user.
   deleteUser(id: string) {
     this.userService.deleteUser(id).subscribe((data: any) => {
-      console.log("User Deleted");
-      
+      window.location.reload()
+      alert("User Deleted!!")
     })
   }
 

@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,7 +13,7 @@ export class SignupComponent implements OnInit {
   formData: any = {};
   errors: any = [];
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(private auth: AuthService, private router: Router, private location: Location) {}
 
   ngOnInit(): void {}
 
@@ -27,4 +28,10 @@ export class SignupComponent implements OnInit {
       }
     );
   }
+
+  // Moves the page back to the previous page.
+  previousPage() {
+    this.location.back()
+  }
+  
 }

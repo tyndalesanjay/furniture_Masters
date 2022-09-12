@@ -9,6 +9,7 @@ router
   .delete(cart.deleteAll)
 
 router.route("/:id")
+  .get(cart.getItemsById)
   .delete(cart.DeleteFromCart);
 
 module.exports = router;

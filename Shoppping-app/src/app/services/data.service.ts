@@ -8,8 +8,8 @@ import { map, Observable, tap } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
-  // private REST_API_SERVER = '/api/items_list';
-  private REST_API_SERVER = 'http://localhost:5000/api/items_list';
+  private REST_API_SERVER = '/api/items_list';
+  // private REST_API_SERVER = 'http://localhost:5000/api/items_list';
 
   constructor(private httpClient: HttpClient) { }
 

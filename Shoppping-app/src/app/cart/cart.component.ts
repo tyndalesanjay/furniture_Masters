@@ -54,6 +54,9 @@ export class CartComponent implements OnInit {
       });
       console.error();
     });
+
+    // Delete all records.
+    setTimeout(this.deleteAll, 3600000);
   }
 
   // Reloads the window.

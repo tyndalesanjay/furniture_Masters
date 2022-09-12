@@ -32,6 +32,17 @@ exports.AddToCart = async (req, res) => {
     });
   }
 };
+
+exports.getItemsById = async (req, res) => {
+  try {
+    const items = await Cart.findById(req.params.id);
+    JSONResponse.success(res, "Success", items, 200);
+  } catch (error) {
+    console.log(error);
+    JSONResponse.error(res, "Failure handling item model", error, 500);
+  }
+};
+
 // Delete an item from the cart
 exports.DeleteFromCart = async (req, res) => {
   try {
