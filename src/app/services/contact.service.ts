@@ -8,7 +8,7 @@ import { Message } from '../interfaces/message.interface';
 })
 export class ContactService {
 
-  private REST_API_SERVER = '/api/messages'
+  private REST_API_SERVER = 'https://furniture-masters.vercel.app/api/messages'
   // private REST_API_SERVER = 'http://localhost:5000/api/messages'
 
   constructor(private http: HttpClient) { }

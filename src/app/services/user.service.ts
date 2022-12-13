@@ -8,7 +8,7 @@ import { map, Observable, tap } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  private REST_API_SERVER = '/api/items_list';
+  private REST_API_SERVER = 'https://furniture-masters.vercel.app/api/items_list';
   // private REST_API_SERVER = 'http://localhost:5000/api/users';
 
   constructor(private httpClient: HttpClient) { }

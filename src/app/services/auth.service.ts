@@ -20,7 +20,7 @@ export class AuthService {
     throw new Error('Method not implemented.');
   }
 
-  private REST_API_SERVER = '/api/login';
+  private REST_API_SERVER = 'https://furniture-masters.vercel.app/api/login';
   // private REST_API_SERVER = 'http://localhost:5000/api/login';
   private decodedToken;
 
